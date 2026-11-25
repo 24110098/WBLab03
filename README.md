@@ -1,7 +1,7 @@
 # WD-Lab03 – HTML & CSS Management Applications
 
 Môn Thiết kế Web · Bài thực hành WD-Lab03
-Sinh viên: **[Họ và tên]** · MSSV: **[MSSV]**
+Sinh viên: **Hồ Việt Thuận Phú** · MSSV: **24110098**
 
 Cả hai ứng dụng chỉ dùng **HTML5 + CSS**, không dùng JavaScript, framework hay backend. Mở file `index.html` bằng trình duyệt là chạy được ngay, không cần mạng (trừ các link Netflix/YouTube bên ngoài).
 
