@@ -746,15 +746,32 @@ input[type="radio"], input[type="checkbox"] { accent-color: var(--red); }
 }
 
 @media (max-width: 720px) {
-  :root { --header-h: 104px; }
+  :root { --header-h: 140px; }
   .site-header {
     flex-wrap: wrap;
     height: auto;
     gap: 8px;
-    padding: 12px 16px 8px;
+    padding: 10px 14px 10px;
   }
-  .main-nav { width: 100%; overflow-x: auto; }
-  .main-nav a { white-space: nowrap; padding: 6px 10px; }
+  /* Menu mobile: lưới 3 cột, đủ 6 mục, không bị cắt mép phải */
+  .main-nav {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .main-nav a {
+    padding: 7px 4px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--panel);
+    font-size: .82rem;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .main-nav a::after { display: none; }
   main { padding: 22px 14px 34px; gap: 42px; }
   .hero { padding: 24px 18px; }
   .hero-actions .btn { padding: 12px 16px; white-space: nowrap; }
