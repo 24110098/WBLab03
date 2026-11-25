@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a0c10"/><stop offset="1" stop-color="#070b16"/></linearGradient></defs>
+<rect width="400" height="600" fill="url(#bg)"/>
+<g transform="translate(-30,20) rotate(12 200 250) translate(200 250) scale(0.85) translate(-200 -250)"><path d="M200 380 C120 330 130 240 170 200 C165 250 195 260 200 230 C205 190 180 150 210 100 C230 160 280 190 270 260 C265 300 240 340 200 380Z" fill="#e63946"/><path d="M200 370 C160 340 165 290 190 265 C195 300 215 300 220 280 C240 310 235 345 200 370Z" fill="#f4b942"/><g fill="#f4b942"><path d="M70 120l6 14 14 6-14 6-6 14-6-14-14-6 14-6z"/><path d="M320 160l4 10 10 4-10 4-4 10-4-10-10-4 10-4z"/></g></g><circle cx="240" cy="140" r="22" fill="#2f6fd6" opacity=".55"/><rect x="0" y="406" width="400" height="6" fill="#2f6fd6" opacity=".6"/>
+<rect x="0" y="0" width="400" height="600" fill="none" stroke="#f4b942" stroke-width="2" opacity=".35"/>
+<text x="200" y="40" fill="#f4b942" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="4" text-anchor="middle">FANTASY · 2025</text>
+<text fill="#ffffff" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="44" font-weight="800" text-anchor="middle" letter-spacing="1"><tspan x="200" y="458">THE OLD</tspan><tspan x="200" y="500">GUARD 2</tspan></text>
+<text x="200" y="575" fill="#9aa6c1" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="12" text-anchor="middle" letter-spacing="2">ẢNH MINH HỌA · CINEVAULT</text>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0c1a3a"/><stop offset="1" stop-color="#070b16"/></linearGradient></defs>
+<rect width="400" height="600" fill="url(#bg)"/>
+<circle cx="200" cy="250" r="110" fill="none" stroke="#f4b942" stroke-width="4" stroke-dasharray="6 10"/><path d="M200 250 L200 160 M200 250 L260 290" stroke="#e63946" stroke-width="8" stroke-linecap="round"/><circle cx="200" cy="250" r="12" fill="#f4b942"/><g fill="#fff"><circle cx="60" cy="90" r="2"/><circle cx="340" cy="70" r="3"/><circle cx="80" cy="380" r="2"/></g>
+<rect x="0" y="0" width="400" height="600" fill="none" stroke="#f4b942" stroke-width="2" opacity=".35"/>
+<text x="200" y="40" fill="#f4b942" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="4" text-anchor="middle">SCI-FI · 2022</text>
+<text fill="#ffffff" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="44" font-weight="800" text-anchor="middle" letter-spacing="1"><tspan x="200" y="458">THE ADAM</tspan><tspan x="200" y="500">PROJECT</tspan></text>
+<text x="200" y="575" fill="#9aa6c1" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="12" text-anchor="middle" letter-spacing="2">ẢNH MINH HỌA · CINEVAULT</text>
+</svg>

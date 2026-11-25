@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0e2244"/><stop offset="1" stop-color="#070b16"/></linearGradient></defs>
+<rect width="400" height="600" fill="url(#bg)"/>
+<rect x="90" y="170" width="220" height="150" rx="8" fill="#f3f4f8"/><path d="M90 175 L200 260 L310 175" fill="none" stroke="#e63946" stroke-width="8"/><circle cx="200" cy="300" r="16" fill="#e63946"/><g fill="#f4b942"><circle cx="70" cy="100" r="4"/><circle cx="330" cy="120" r="5"/><circle cx="120" cy="380" r="3"/><circle cx="300" cy="370" r="4"/><circle cx="200" cy="90" r="3"/></g>
+<rect x="0" y="0" width="400" height="600" fill="none" stroke="#f4b942" stroke-width="2" opacity=".35"/>
+<text x="200" y="40" fill="#f4b942" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="4" text-anchor="middle">ANIMATION · 2019</text>
+<text fill="#ffffff" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="44" font-weight="800" text-anchor="middle" letter-spacing="1"><tspan x="200" y="500">KLAUS</tspan></text>
+<text x="200" y="575" fill="#9aa6c1" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="12" text-anchor="middle" letter-spacing="2">ẢNH MINH HỌA · CINEVAULT</text>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a1f33"/><stop offset="1" stop-color="#070b16"/></linearGradient></defs>
+<rect width="400" height="600" fill="url(#bg)"/>
+<rect x="60" y="250" width="280" height="130" fill="#2a1a14"/><g fill="#3b2a20"><rect x="60" y="225" width="40" height="30"/><rect x="130" y="225" width="40" height="30"/><rect x="200" y="225" width="40" height="30"/><rect x="270" y="225" width="40" height="30"/></g><g stroke="#e63946" stroke-width="3" stroke-linecap="round" opacity=".9"><path d="M50 60l-14 40M100 80l-14 40M150 50l-14 40M200 90l-14 40M250 60l-14 40M300 85l-14 40M350 55l-14 40M80 150l-14 40M180 160l-14 40M280 150l-14 40M330 175l-14 40"/></g><circle cx="320" cy="110" r="26" fill="#f4b942" opacity=".8"/>
+<rect x="0" y="0" width="400" height="600" fill="none" stroke="#f4b942" stroke-width="2" opacity=".35"/>
+<text x="200" y="40" fill="#f4b942" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="4" text-anchor="middle">DRAMA · 2025</text>
+<text fill="#ffffff" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="44" font-weight="800" text-anchor="middle" letter-spacing="1"><tspan x="200" y="500">MƯA ĐỎ</tspan></text>
+<rect x="300" y="550" width="80" height="26" rx="6" fill="#e63946"/><text x="340" y="568" fill="#fff" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="800" text-anchor="middle">PHIM VIỆT</text><text x="150" y="575" fill="#9aa6c1" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="12" text-anchor="middle" letter-spacing="2">ẢNH MINH HỌA · CINEVAULT</text>
+</svg>

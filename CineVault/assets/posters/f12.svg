@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0e2244"/><stop offset="1" stop-color="#070b16"/></linearGradient></defs>
+<rect width="400" height="600" fill="url(#bg)"/>
+<g transform="translate(40,30) rotate(-10 200 250) translate(200 250) scale(0.8) translate(-200 -250)"><path d="M0 330 Q50 300 100 330 T200 330 T300 330 T400 330 V600 H0Z" fill="#1f3b73"/><path d="M0 360 Q50 335 100 360 T200 360 T300 360 T400 360 V600 H0Z" fill="#16294f"/><circle cx="290" cy="150" r="50" fill="#f4b942"/><path d="M110 320 L150 220 L150 320Z" fill="#f3f4f8"/><path d="M150 230 L190 320 L150 320Z" fill="#e63946"/><rect x="95" y="320" width="110" height="18" rx="6" fill="#e63946"/></g><circle cx="150" cy="115" r="18" fill="#f4b942" opacity=".55"/><rect x="0" y="418" width="400" height="6" fill="#f4b942" opacity=".6"/>
+<rect x="0" y="0" width="400" height="600" fill="none" stroke="#f4b942" stroke-width="2" opacity=".35"/>
+<text x="200" y="40" fill="#f4b942" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="4" text-anchor="middle">ANIMATION · 2022</text>
+<text fill="#ffffff" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="44" font-weight="800" text-anchor="middle" letter-spacing="1"><tspan x="200" y="458">THE SEA</tspan><tspan x="200" y="500">BEAST</tspan></text>
+<text x="200" y="575" fill="#9aa6c1" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="12" text-anchor="middle" letter-spacing="2">ẢNH MINH HỌA · CINEVAULT</text>
+</svg>

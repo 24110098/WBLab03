@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0c0f18"/><stop offset="1" stop-color="#070b16"/></linearGradient></defs>
+<rect width="400" height="600" fill="url(#bg)"/>
+<g transform="translate(40,30) rotate(-10 200 250) translate(200 250) scale(0.8) translate(-200 -250)"><ellipse cx="200" cy="250" rx="140" ry="70" fill="#0b0f1c"/><circle cx="200" cy="250" r="45" fill="#e63946"/><circle cx="200" cy="250" r="16" fill="#000"/><rect x="40" y="225" width="320" height="34" fill="#1b1f2e" transform="rotate(-8 200 240)"/><g fill="#f4b942"><path d="M80 120l18 30-36 0z"/><path d="M310 380l14 24-28 0z"/></g></g><circle cx="150" cy="115" r="18" fill="#f4b942" opacity=".55"/><rect x="0" y="418" width="400" height="6" fill="#f4b942" opacity=".6"/>
+<rect x="0" y="0" width="400" height="600" fill="none" stroke="#f4b942" stroke-width="2" opacity=".35"/>
+<text x="200" y="40" fill="#f4b942" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="4" text-anchor="middle">HORROR · 2025</text>
+<text fill="#ffffff" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="44" font-weight="800" text-anchor="middle" letter-spacing="1"><tspan x="200" y="458">FEAR STREET:</tspan><tspan x="200" y="500">PROM QUEEN</tspan></text>
+<text x="200" y="575" fill="#9aa6c1" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="12" text-anchor="middle" letter-spacing="2">ẢNH MINH HỌA · CINEVAULT</text>
+</svg>

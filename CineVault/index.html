@@ -1,0 +1,2243 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="#070b16" name="theme-color"/>
+  <meta content="CineVault — thư viện phim cá nhân, 12 phim chia theo 9 thể loại, xem chi tiết và mở trang xem chính thức." name="description"/>
+  <title>CineVault — Thư viện phim cá nhân</title>
+  <link href="styles.css" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- Radio lọc thể loại (CSS-only): đặt trước .page để dùng selector "~" -->
+<input checked class="filter-input" id="g-all" name="genre" type="radio"/>
+<input class="filter-input" id="g-action" name="genre" type="radio"/>
+<input class="filter-input" id="g-comedy" name="genre" type="radio"/>
+<input class="filter-input" id="g-drama" name="genre" type="radio"/>
+<input class="filter-input" id="g-romance" name="genre" type="radio"/>
+<input class="filter-input" id="g-horror" name="genre" type="radio"/>
+<input class="filter-input" id="g-thriller" name="genre" type="radio"/>
+<input class="filter-input" id="g-scifi" name="genre" type="radio"/>
+<input class="filter-input" id="g-fantasy" name="genre" type="radio"/>
+<input class="filter-input" id="g-animation" name="genre" type="radio"/>
+<input class="filter-input" id="g-vn" name="genre" type="radio"/>
+
+<div class="page">
+
+  <!-- ===== HEADER + NAV (Flexbox, sticky) ===== -->
+  <header class="site-header">
+    <a class="logo" href="index.html">
+      <span aria-hidden="true" class="logo-mark">▶</span>
+      CINE<b>VAULT</b>
+    </a>
+    <nav aria-label="Điều hướng chính" class="main-nav">
+      <a href="#home">Trang chủ</a>
+      <a href="#genres">Thể loại</a>
+      <a href="#library">Thư viện</a>
+      <a href="#upcoming">Sắp chiếu</a>
+      <a href="#dataset">Bảng dữ liệu</a>
+      <a href="#suggest">Đề xuất phim</a>
+    </nav>
+    <p class="header-badge">29 phim · 14 sắp chiếu</p>
+  </header>
+
+  <main>
+    <!-- ===== HERO: phim nổi bật ===== -->
+    <section aria-labelledby="hero-title" class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">Thư viện phim cá nhân</p>
+        <h1 id="hero-title">Tối nay<br/><span>xem gì?</span></h1>
+        <p class="lead">CineVault gom 29 bộ phim mình thích, ưu tiên phim mới 2025 và phim Việt: chia theo 9 thể loại, có tóm tắt, đạo diễn, diễn viên, trailer YouTube và đường dẫn tới trang xem chính thức.</p>
+        <div class="hero-actions">
+          <a class="btn btn-red" href="#library">Mở thư viện</a>
+          <a class="btn btn-ghost" href="#genres">Chọn theo thể loại</a>
+        </div>
+      </div>
+
+      <article aria-label="Phim nổi bật" class="feature">
+        <span class="poster feature-poster-wrap" data-title="Mưa Đỏ"><img alt="Poster phim Mưa Đỏ" class="feature-poster" src="assets/posters/f18.jpg"/></span>
+        <div class="feature-info">
+          <span class="ribbon">★ Phim Việt nổi bật 2025</span>
+          <h2>Mưa Đỏ</h2>
+          <p>Chính kịch · Chiến tranh · 2025 · Đặng Thái Huyền</p>
+          <div class="feature-actions">
+            <a class="btn btn-gold" href="#film-F18">Xem chi tiết</a>
+            <a class="btn btn-ghost" href="https://www.youtube.com/results?search_query=M%C6%B0a+%C4%90%E1%BB%8F+trailer+ch%C3%ADnh+th%E1%BB%A9c" rel="noopener" target="_blank">Trailer ↗</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section aria-label="Tổng quan thư viện" class="stats">
+      <div class="stat"><b>29</b><span>Phim trong thư viện</span></div>
+      <div class="stat"><b>14</b><span>Phim sắp chiếu</span></div>
+      <div class="stat"><b>09</b><span>Thể loại</span></div>
+      <div class="stat"><b>14</b><span>Phim Việt (7 đã chiếu + 7 sắp chiếu)</span></div>
+    </section>
+
+    <!-- ===== THỂ LOẠI (label → radio lọc) ===== -->
+    <section aria-labelledby="genres-title" class="genres" id="genres">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Danh mục</p>
+          <h2 id="genres-title">9 thể loại phim</h2>
+        </div>
+        <p class="muted">Bấm một thể loại để lọc thư viện bên dưới.</p>
+      </div>
+      <div class="genre-grid">
+          <label class="genre-card" for="g-action">
+            <span class="genre-en">Action</span>
+            <strong>Hành động</strong>
+            <small>Pha chiến đấu, rượt đuổi, cháy nổ và nhịp phim dồn dập.</small>
+            <span class="genre-count">4 phim</span>
+          </label>
+          <label class="genre-card" for="g-comedy">
+            <span class="genre-en">Comedy</span>
+            <strong>Hài</strong>
+            <small>Tiếng cười nhẹ nhàng qua tình huống trớ trêu, duyên dáng hoặc châm biếm.</small>
+            <span class="genre-count">3 phim</span>
+          </label>
+          <label class="genre-card" for="g-drama">
+            <span class="genre-en">Drama</span>
+            <strong>Chính kịch</strong>
+            <small>Khai thác nội tâm, bi kịch và các mối quan hệ đời thường.</small>
+            <span class="genre-count">3 phim</span>
+          </label>
+          <label class="genre-card" for="g-romance">
+            <span class="genre-en">Romance</span>
+            <strong>Tình cảm</strong>
+            <small>Chuyện tình yêu, cảm xúc đôi lứa và những rung động.</small>
+            <span class="genre-count">3 phim</span>
+          </label>
+          <label class="genre-card" for="g-horror">
+            <span class="genre-en">Horror</span>
+            <strong>Kinh dị</strong>
+            <small>Sợ hãi, giật mình qua yếu tố tâm linh, ma quỷ, quái vật.</small>
+            <span class="genre-count">3 phim</span>
+          </label>
+          <label class="genre-card" for="g-thriller">
+            <span class="genre-en">Thriller</span>
+            <strong>Giật gân</strong>
+            <small>Hồi hộp, đấu trí và những cú lật tình huống bất ngờ.</small>
+            <span class="genre-count">4 phim</span>
+          </label>
+          <label class="genre-card" for="g-scifi">
+            <span class="genre-en">Sci-fi</span>
+            <strong>Khoa học viễn tưởng</strong>
+            <small>Công nghệ tương lai, du hành thời gian, giả thuyết khoa học.</small>
+            <span class="genre-count">3 phim</span>
+          </label>
+          <label class="genre-card" for="g-fantasy">
+            <span class="genre-en">Fantasy</span>
+            <strong>Kỳ ảo</strong>
+            <small>Thế giới siêu nhiên, phép thuật, thần thoại, sinh vật huyền bí.</small>
+            <span class="genre-count">3 phim</span>
+          </label>
+          <label class="genre-card" for="g-animation">
+            <span class="genre-en">Animation</span>
+            <strong>Hoạt hình</strong>
+            <small>Cốt truyện sâu sắc, đồ họa ấn tượng cho mọi lứa tuổi.</small>
+            <span class="genre-count">3 phim</span>
+          </label>
+      </div>
+    </section>
+
+    <!-- ===== THƯ VIỆN (Grid poster) ===== -->
+    <section aria-labelledby="library-title" class="library" id="library">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Thư viện</p>
+          <h2 id="library-title">Tất cả phim</h2>
+        </div>
+        <p class="muted">Bấm vào poster để xem chi tiết và link xem phim.</p>
+      </div>
+
+      <div aria-label="Lọc thể loại" class="chips">
+          <label for="g-all">Tất cả</label>
+          <label class="chip-vn" for="g-vn">★ Phim Việt</label>
+          <label for="g-action">Hành động</label>
+          <label for="g-comedy">Hài</label>
+          <label for="g-drama">Chính kịch</label>
+          <label for="g-romance">Tình cảm</label>
+          <label for="g-horror">Kinh dị</label>
+          <label for="g-thriller">Giật gân</label>
+          <label for="g-scifi">Khoa học viễn tưởng</label>
+          <label for="g-fantasy">Kỳ ảo</label>
+          <label for="g-animation">Hoạt hình</label>
+      </div>
+
+      <div class="film-grid">
+          <article class="film" data-country="intl" data-genre="action">
+            <a class="film-link" href="#film-F13">
+              <span class="poster" data-title="Back in Action">
+                <img alt="Poster phim Back in Action" loading="lazy" src="assets/posters/f13.jpg"/>
+                <span class="film-code">F13</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Hành động</span>
+              <h3>Back in Action</h3>
+              <p>2025 · Seth Gordon</p>
+            </a>
+          </article>
+          <article class="film" data-country="vn" data-genre="action">
+            <a class="film-link" href="#film-F14">
+              <span class="poster" data-title="Truy Tìm Long Diên Hương">
+                <img alt="Poster phim Truy Tìm Long Diên Hương" loading="lazy" src="assets/posters/f14.jpg"/>
+                <span class="film-code">F14</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Hành động</span>
+              <h3>Truy Tìm Long Diên Hương</h3>
+              <p>2025 · Dương Minh Chiến</p>
+            </a>
+          </article>
+          <article class="film" data-country="intl" data-genre="comedy">
+            <a class="film-link" href="#film-F15">
+              <span class="poster" data-title="Happy Gilmore 2">
+                <img alt="Poster phim Happy Gilmore 2" loading="lazy" src="assets/posters/f15.jpg"/>
+                <span class="film-code">F15</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Hài</span>
+              <h3>Happy Gilmore 2</h3>
+              <p>2025 · Kyle Newacheck</p>
+            </a>
+          </article>
+          <article class="film" data-country="vn" data-genre="comedy">
+            <a class="film-link" href="#film-F16">
+              <span class="poster" data-title="Bộ Tứ Báo Thủ">
+                <img alt="Poster phim Bộ Tứ Báo Thủ" loading="lazy" src="assets/posters/f16.jpg"/>
+                <span class="film-code">F16</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Hài</span>
+              <h3>Bộ Tứ Báo Thủ</h3>
+              <p>2025 · Trấn Thành</p>
+            </a>
+          </article>
+          <article class="film" data-country="vn" data-genre="drama">
+            <a class="film-link" href="#film-F18">
+              <span class="poster" data-title="Mưa Đỏ">
+                <img alt="Poster phim Mưa Đỏ" loading="lazy" src="assets/posters/f18.jpg"/>
+                <span class="film-code">F18</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Chính kịch</span>
+              <h3>Mưa Đỏ</h3>
+              <p>2025 · Đặng Thái Huyền</p>
+            </a>
+          </article>
+          <article class="film" data-country="intl" data-genre="romance">
+            <a class="film-link" href="#film-F20">
+              <span class="poster" data-title="My Oxford Year">
+                <img alt="Poster phim My Oxford Year" loading="lazy" src="assets/posters/f20.jpg"/>
+                <span class="film-code">F20</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Tình cảm</span>
+              <h3>My Oxford Year</h3>
+              <p>2025 · Iain Morris</p>
+            </a>
+          </article>
+          <article class="film" data-country="intl" data-genre="horror">
+            <a class="film-link" href="#film-F21">
+              <span class="poster" data-title="Fear Street: Prom Queen">
+                <img alt="Poster phim Fear Street: Prom Queen" loading="lazy" src="assets/posters/f21.jpg"/>
+                <span class="film-code">F21</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Kinh dị</span>
+              <h3>Fear Street: Prom Queen</h3>
+              <p>2025 · Matt Palmer</p>
+            </a>
+          </article>
+          <article class="film" data-country="intl" data-genre="thriller">
+            <a class="film-link" href="#film-F23">
+              <span class="poster" data-title="A House of Dynamite">
+                <img alt="Poster phim A House of Dynamite" loading="lazy" src="assets/posters/f23.jpg"/>
+                <span class="film-code">F23</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Giật gân</span>
+              <h3>A House of Dynamite</h3>
+              <p>2025 · Kathryn Bigelow</p>
+            </a>
+          </article>
+          <article class="film" data-country="intl" data-genre="thriller">
+            <a class="film-link" href="#film-F24">
+              <span class="poster" data-title="The Woman in Cabin 10">
+                <img alt="Poster phim The Woman in Cabin 10" loading="lazy" src="assets/posters/f24.jpg"/>
+                <span class="film-code">F24</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Giật gân</span>
+              <h3>The Woman in Cabin 10</h3>
+              <p>2025 · Simon Stone</p>
+            </a>
+          </article>
+          <article class="film" data-country="vn" data-genre="thriller">
+            <a class="film-link" href="#film-F25">
+              <span class="poster" data-title="Thám Tử Kiên: Kỳ Án Không Đầu">
+                <img alt="Poster phim Thám Tử Kiên: Kỳ Án Không Đầu" loading="lazy" src="assets/posters/f25.jpg"/>
+                <span class="film-code">F25</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Giật gân</span>
+              <h3>Thám Tử Kiên: Kỳ Án Không Đầu</h3>
+              <p>2025 · Victor Vũ</p>
+            </a>
+          </article>
+          <article class="film" data-country="intl" data-genre="scifi">
+            <a class="film-link" href="#film-F26">
+              <span class="poster" data-title="The Electric State">
+                <img alt="Poster phim The Electric State" loading="lazy" src="assets/posters/f26.jpg"/>
+                <span class="film-code">F26</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Khoa học viễn tưởng</span>
+              <h3>The Electric State</h3>
+              <p>2025 · Anthony Russo, Joe Russo</p>
+            </a>
+          </article>
+          <article class="film" data-country="intl" data-genre="scifi">
+            <a class="film-link" href="#film-F27">
+              <span class="poster" data-title="Frankenstein">
+                <img alt="Poster phim Frankenstein" loading="lazy" src="assets/posters/f27.jpg"/>
+                <span class="film-code">F27</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Khoa học viễn tưởng</span>
+              <h3>Frankenstein</h3>
+              <p>2025 · Guillermo del Toro</p>
+            </a>
+          </article>
+          <article class="film" data-country="intl" data-genre="fantasy">
+            <a class="film-link" href="#film-F28">
+              <span class="poster" data-title="The Old Guard 2">
+                <img alt="Poster phim The Old Guard 2" loading="lazy" src="assets/posters/f28.jpg"/>
+                <span class="film-code">F28</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Kỳ ảo</span>
+              <h3>The Old Guard 2</h3>
+              <p>2025 · Victoria Mahoney</p>
+            </a>
+          </article>
+          <article class="film" data-country="intl" data-genre="animation">
+            <a class="film-link" href="#film-F29">
+              <span class="poster" data-title="KPop Demon Hunters">
+                <img alt="Poster phim KPop Demon Hunters" loading="lazy" src="assets/posters/f29.jpg"/>
+                <span class="film-code">F29</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Hoạt hình</span>
+              <h3>KPop Demon Hunters</h3>
+              <p>2025 · Maggie Kang, Chris Appelhans</p>
+            </a>
+          </article>
+          <article class="film" data-country="intl" data-genre="fantasy">
+            <a class="film-link" href="#film-F10">
+              <span class="poster" data-title="Damsel">
+                <img alt="Poster phim Damsel" loading="lazy" src="assets/posters/f10.jpg"/>
+                <span class="film-code">F10</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Kỳ ảo</span>
+              <h3>Damsel</h3>
+              <p>2024 · Juan Carlos Fresnadillo</p>
+            </a>
+          </article>
+          <article class="film" data-country="vn" data-genre="drama">
+            <a class="film-link" href="#film-F17">
+              <span class="poster" data-title="Lật Mặt 7: Một Điều Ước">
+                <img alt="Poster phim Lật Mặt 7: Một Điều Ước" loading="lazy" src="assets/posters/f17.jpg"/>
+                <span class="film-code">F17</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Chính kịch</span>
+              <h3>Lật Mặt 7: Một Điều Ước</h3>
+              <p>2024 · Lý Hải</p>
+            </a>
+          </article>
+          <article class="film" data-country="vn" data-genre="romance">
+            <a class="film-link" href="#film-F19">
+              <span class="poster" data-title="Mai">
+                <img alt="Poster phim Mai" loading="lazy" src="assets/posters/f19.jpg"/>
+                <span class="film-code">F19</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Tình cảm</span>
+              <h3>Mai</h3>
+              <p>2024 · Trấn Thành</p>
+            </a>
+          </article>
+          <article class="film" data-country="vn" data-genre="horror">
+            <a class="film-link" href="#film-F22">
+              <span class="poster" data-title="Cám">
+                <img alt="Poster phim Cám" loading="lazy" src="assets/posters/f22.jpg"/>
+                <span class="film-code">F22</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Kinh dị</span>
+              <h3>Cám</h3>
+              <p>2024 · Trần Hữu Tấn</p>
+            </a>
+          </article>
+          <article class="film" data-country="intl" data-genre="thriller">
+            <a class="film-link" href="#film-F07">
+              <span class="poster" data-title="Leave the World Behind">
+                <img alt="Poster phim Leave the World Behind" loading="lazy" src="assets/posters/f07.jpg"/>
+                <span class="film-code">F07</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Giật gân</span>
+              <h3>Leave the World Behind</h3>
+              <p>2023 · Sam Esmail</p>
+            </a>
+          </article>
+          <article class="film" data-country="intl" data-genre="action">
+            <a class="film-link" href="#film-F02">
+              <span class="poster" data-title="The Gray Man">
+                <img alt="Poster phim The Gray Man" loading="lazy" src="assets/posters/f02.jpg"/>
+                <span class="film-code">F02</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Hành động</span>
+              <h3>The Gray Man</h3>
+              <p>2022 · Anthony Russo, Joe Russo</p>
+            </a>
+          </article>
+          <article class="film" data-country="intl" data-genre="comedy">
+            <a class="film-link" href="#film-F03">
+              <span class="poster" data-title="Glass Onion">
+                <img alt="Poster phim Glass Onion" loading="lazy" src="assets/posters/f03.jpg"/>
+                <span class="film-code">F03</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Hài</span>
+              <h3>Glass Onion</h3>
+              <p>2022 · Rian Johnson</p>
+            </a>
+          </article>
+          <article class="film" data-country="intl" data-genre="scifi">
+            <a class="film-link" href="#film-F08">
+              <span class="poster" data-title="The Adam Project">
+                <img alt="Poster phim The Adam Project" loading="lazy" src="assets/posters/f08.jpg"/>
+                <span class="film-code">F08</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Khoa học viễn tưởng</span>
+              <h3>The Adam Project</h3>
+              <p>2022 · Shawn Levy</p>
+            </a>
+          </article>
+          <article class="film" data-country="intl" data-genre="animation">
+            <a class="film-link" href="#film-F12">
+              <span class="poster" data-title="The Sea Beast">
+                <img alt="Poster phim The Sea Beast" loading="lazy" src="assets/posters/f12.jpg"/>
+                <span class="film-code">F12</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Hoạt hình</span>
+              <h3>The Sea Beast</h3>
+              <p>2022 · Chris Williams</p>
+            </a>
+          </article>
+          <article class="film" data-country="intl" data-genre="action">
+            <a class="film-link" href="#film-F01">
+              <span class="poster" data-title="Extraction">
+                <img alt="Poster phim Extraction" loading="lazy" src="assets/posters/f01.jpg"/>
+                <span class="film-code">F01</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Hành động</span>
+              <h3>Extraction</h3>
+              <p>2020 · Sam Hargrave</p>
+            </a>
+          </article>
+          <article class="film" data-country="intl" data-genre="drama">
+            <a class="film-link" href="#film-F04">
+              <span class="poster" data-title="Marriage Story">
+                <img alt="Poster phim Marriage Story" loading="lazy" src="assets/posters/f04.jpg"/>
+                <span class="film-code">F04</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Chính kịch</span>
+              <h3>Marriage Story</h3>
+              <p>2019 · Noah Baumbach</p>
+            </a>
+          </article>
+          <article class="film" data-country="intl" data-genre="animation">
+            <a class="film-link" href="#film-F11">
+              <span class="poster" data-title="Klaus">
+                <img alt="Poster phim Klaus" loading="lazy" src="assets/posters/f11.jpg"/>
+                <span class="film-code">F11</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Hoạt hình</span>
+              <h3>Klaus</h3>
+              <p>2019 · Sergio Pablos</p>
+            </a>
+          </article>
+          <article class="film" data-country="intl" data-genre="romance">
+            <a class="film-link" href="#film-F05">
+              <span class="poster" data-title="To All the Boys I&#x27;ve Loved Before">
+                <img alt="Poster phim To All the Boys I&#x27;ve Loved Before" loading="lazy" src="assets/posters/f05.jpg"/>
+                <span class="film-code">F05</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Tình cảm</span>
+              <h3>To All the Boys I&#x27;ve Loved Before</h3>
+              <p>2018 · Susan Johnson</p>
+            </a>
+          </article>
+          <article class="film" data-country="intl" data-genre="horror">
+            <a class="film-link" href="#film-F06">
+              <span class="poster" data-title="Bird Box">
+                <img alt="Poster phim Bird Box" loading="lazy" src="assets/posters/f06.jpg"/>
+                <span class="film-code">F06</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Kinh dị</span>
+              <h3>Bird Box</h3>
+              <p>2018 · Susanne Bier</p>
+            </a>
+          </article>
+          <article class="film" data-country="intl" data-genre="fantasy">
+            <a class="film-link" href="#film-F09">
+              <span class="poster" data-title="Okja">
+                <img alt="Poster phim Okja" loading="lazy" src="assets/posters/f09.jpg"/>
+                <span class="film-code">F09</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="film-tag">Kỳ ảo</span>
+              <h3>Okja</h3>
+              <p>2017 · Bong Joon-ho</p>
+            </a>
+          </article>
+      </div>
+    </section>
+
+    <!-- ===== PHIM SẮP CHIẾU ===== -->
+    <section aria-labelledby="upcoming-title" class="upcoming" id="upcoming">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Coming soon</p>
+          <h2 id="upcoming-title">Phim sắp chiếu</h2>
+        </div>
+        <p class="muted">Lịch dự kiến, cập nhật ngày 25/11/2026 — có thể thay đổi theo nhà phát hành. Bộ lọc thể loại ở trên cũng áp dụng cho mục này.</p>
+      </div>
+      <div class="film-grid upcoming-grid">
+          <article class="film film-upcoming" data-country="intl" data-genre="action">
+            <a class="film-link" href="#film-U01">
+              <span class="poster" data-title="Avengers: Ngày Tận Thế">
+                <img alt="Poster phim Avengers: Ngày Tận Thế" loading="lazy" src="assets/posters/u01.jpg"/>
+                <span class="film-code">U01</span>
+                <span class="soon-ribbon">Sắp chiếu</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="release-date">📅 18/12/2026</span>
+              <h3>Avengers: Ngày Tận Thế</h3>
+              <p>Hành động · Quốc tế</p>
+            </a>
+          </article>
+          <article class="film film-upcoming" data-country="vn" data-genre="action">
+            <a class="film-link" href="#film-U02">
+              <span class="poster" data-title="Loạn Thế: Nghĩa Khí Anh Hùng">
+                <img alt="Poster phim Loạn Thế: Nghĩa Khí Anh Hùng" loading="lazy" src="assets/posters/u02.jpg"/>
+                <span class="film-code">U02</span>
+                <span class="soon-ribbon">Sắp chiếu</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="release-date">📅 Tết 2027</span>
+              <h3>Loạn Thế: Nghĩa Khí Anh Hùng</h3>
+              <p>Hành động · Phim Việt</p>
+            </a>
+          </article>
+          <article class="film film-upcoming" data-country="intl" data-genre="comedy">
+            <a class="film-link" href="#film-U03">
+              <span class="poster" data-title="Jumanji: Thế Giới Đảo Chiều">
+                <img alt="Poster phim Jumanji: Thế Giới Đảo Chiều" loading="lazy" src="assets/posters/u03.jpg"/>
+                <span class="film-code">U03</span>
+                <span class="soon-ribbon">Sắp chiếu</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="release-date">📅 25/12/2026</span>
+              <h3>Jumanji: Thế Giới Đảo Chiều</h3>
+              <p>Hài · Quốc tế</p>
+            </a>
+          </article>
+          <article class="film film-upcoming" data-country="vn" data-genre="drama">
+            <a class="film-link" href="#film-U04">
+              <span class="poster" data-title="Người Mẹ Xấu">
+                <img alt="Poster phim Người Mẹ Xấu" loading="lazy" src="assets/posters/u04.jpg"/>
+                <span class="film-code">U04</span>
+                <span class="soon-ribbon">Sắp chiếu</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="release-date">📅 31/12/2026</span>
+              <h3>Người Mẹ Xấu</h3>
+              <p>Chính kịch · Phim Việt</p>
+            </a>
+          </article>
+          <article class="film film-upcoming" data-country="vn" data-genre="drama">
+            <a class="film-link" href="#film-U05">
+              <span class="poster" data-title="Viên Đạn Cuối Cùng">
+                <img alt="Poster phim Viên Đạn Cuối Cùng" loading="lazy" src="assets/posters/u05.jpg"/>
+                <span class="film-code">U05</span>
+                <span class="soon-ribbon">Sắp chiếu</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="release-date">📅 Tết Dương lịch 2027</span>
+              <h3>Viên Đạn Cuối Cùng</h3>
+              <p>Chính kịch · Phim Việt</p>
+            </a>
+          </article>
+          <article class="film film-upcoming" data-country="vn" data-genre="romance">
+            <a class="film-link" href="#film-U06">
+              <span class="poster" data-title="Bắt Cá Ba Tay">
+                <img alt="Poster phim Bắt Cá Ba Tay" loading="lazy" src="assets/posters/u06.jpg"/>
+                <span class="film-code">U06</span>
+                <span class="soon-ribbon">Sắp chiếu</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="release-date">📅 04/12/2026</span>
+              <h3>Bắt Cá Ba Tay</h3>
+              <p>Tình cảm · Phim Việt</p>
+            </a>
+          </article>
+          <article class="film film-upcoming" data-country="vn" data-genre="horror">
+            <a class="film-link" href="#film-U07">
+              <span class="poster" data-title="Con Mắt Thứ Ba">
+                <img alt="Poster phim Con Mắt Thứ Ba" loading="lazy" src="assets/posters/u07.jpg"/>
+                <span class="film-code">U07</span>
+                <span class="soon-ribbon">Sắp chiếu</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="release-date">📅 04/12/2026</span>
+              <h3>Con Mắt Thứ Ba</h3>
+              <p>Kinh dị · Phim Việt</p>
+            </a>
+          </article>
+          <article class="film film-upcoming" data-country="vn" data-genre="horror">
+            <a class="film-link" href="#film-U08">
+              <span class="poster" data-title="Trấn Yểm">
+                <img alt="Poster phim Trấn Yểm" loading="lazy" src="assets/posters/u08.jpg"/>
+                <span class="film-code">U08</span>
+                <span class="soon-ribbon">Sắp chiếu</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="release-date">📅 25/12/2026</span>
+              <h3>Trấn Yểm</h3>
+              <p>Kinh dị · Phim Việt</p>
+            </a>
+          </article>
+          <article class="film film-upcoming" data-country="vn" data-genre="thriller">
+            <a class="film-link" href="#film-U09">
+              <span class="poster" data-title="Thám Tử Kiên: Lời Nguyền Hoàng Kim">
+                <img alt="Poster phim Thám Tử Kiên: Lời Nguyền Hoàng Kim" loading="lazy" src="assets/posters/u09.jpg"/>
+                <span class="film-code">U09</span>
+                <span class="soon-ribbon">Sắp chiếu</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="release-date">📅 06/02/2027</span>
+              <h3>Thám Tử Kiên: Lời Nguyền Hoàng Kim</h3>
+              <p>Giật gân · Phim Việt</p>
+            </a>
+          </article>
+          <article class="film film-upcoming" data-country="intl" data-genre="scifi">
+            <a class="film-link" href="#film-U10">
+              <span class="poster" data-title="Dune: Hành Tinh Cát – Phần Ba">
+                <img alt="Poster phim Dune: Hành Tinh Cát – Phần Ba" loading="lazy" src="assets/posters/u10.jpg"/>
+                <span class="film-code">U10</span>
+                <span class="soon-ribbon">Sắp chiếu</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="release-date">📅 18/12/2026</span>
+              <h3>Dune: Hành Tinh Cát – Phần Ba</h3>
+              <p>Khoa học viễn tưởng · Quốc tế</p>
+            </a>
+          </article>
+          <article class="film film-upcoming" data-country="intl" data-genre="scifi">
+            <a class="film-link" href="#film-U11">
+              <span class="poster" data-title="Star Wars: Starfighter">
+                <img alt="Poster phim Star Wars: Starfighter" loading="lazy" src="assets/posters/u11.jpg"/>
+                <span class="film-code">U11</span>
+                <span class="soon-ribbon">Sắp chiếu</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="release-date">📅 28/05/2027</span>
+              <h3>Star Wars: Starfighter</h3>
+              <p>Khoa học viễn tưởng · Quốc tế</p>
+            </a>
+          </article>
+          <article class="film film-upcoming" data-country="intl" data-genre="fantasy">
+            <a class="film-link" href="#film-U12">
+              <span class="poster" data-title="Narnia: The Magician&#x27;s Nephew">
+                <img alt="Poster phim Narnia: The Magician&#x27;s Nephew" loading="lazy" src="assets/posters/u12.jpg"/>
+                <span class="film-code">U12</span>
+                <span class="soon-ribbon">Sắp chiếu</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="release-date">📅 02/2027 (rạp) · 02/04/2027 (Netflix)</span>
+              <h3>Narnia: The Magician&#x27;s Nephew</h3>
+              <p>Kỳ ảo · Quốc tế</p>
+            </a>
+          </article>
+          <article class="film film-upcoming" data-country="intl" data-genre="animation">
+            <a class="film-link" href="#film-U13">
+              <span class="poster" data-title="Kỷ Băng Hà: Điểm Bùng Nổ">
+                <img alt="Poster phim Kỷ Băng Hà: Điểm Bùng Nổ" loading="lazy" src="assets/posters/u13.jpg"/>
+                <span class="film-code">U13</span>
+                <span class="soon-ribbon">Sắp chiếu</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="release-date">📅 06/02/2027</span>
+              <h3>Kỷ Băng Hà: Điểm Bùng Nổ</h3>
+              <p>Hoạt hình · Quốc tế</p>
+            </a>
+          </article>
+          <article class="film film-upcoming" data-country="intl" data-genre="animation">
+            <a class="film-link" href="#film-U14">
+              <span class="poster" data-title="Shrek 5">
+                <img alt="Poster phim Shrek 5" loading="lazy" src="assets/posters/u14.jpg"/>
+                <span class="film-code">U14</span>
+                <span class="soon-ribbon">Sắp chiếu</span>
+                <span class="film-hover">Xem chi tiết</span>
+              </span>
+              <span class="release-date">📅 30/06/2027</span>
+              <h3>Shrek 5</h3>
+              <p>Hoạt hình · Quốc tế</p>
+            </a>
+          </article>
+      </div>
+    </section>
+
+    <!-- ===== BẢNG DỮ LIỆU ===== -->
+    <section aria-labelledby="dataset-title" class="dataset" id="dataset">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Dataset</p>
+          <h2 id="dataset-title">Bảng dữ liệu 43 phim</h2>
+        </div>
+        <p class="muted">F01–F29: đã phát hành (mới nhất trước) · U01–U14: sắp chiếu. Mã trùng với mã trên poster và trang chi tiết.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Mã</th><th scope="col">Tên phim</th><th scope="col">Thể loại</th><th scope="col">Năm / Ngày chiếu</th><th scope="col">Đạo diễn</th><th scope="col">Xem / Trailer</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="#film-F13">F13</a></td>
+              <td><strong>Back in Action</strong> <br/><small>Trở Lại Hành Động</small></td>
+              <td><span class="table-tag">Hành động</span></td>
+              <td>2025<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Seth Gordon</td>
+              <td><a class="table-watch" href="https://www.netflix.com/title/81307099" rel="noopener" target="_blank">Netflix ↗</a><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=Back+in+Action+2025+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr>
+              <td><a href="#film-F14">F14</a></td>
+              <td><strong>Truy Tìm Long Diên Hương</strong> <span class="vn-badge">Phim Việt</span><br/><small>Fish, Fists and Ambergris</small></td>
+              <td><span class="table-tag">Hành động</span></td>
+              <td>2025<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Dương Minh Chiến</td>
+              <td><a class="table-watch" href="https://www.netflix.com/title/82714645" rel="noopener" target="_blank">Netflix ↗</a><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=Truy+T%C3%ACm+Long+Di%C3%AAn+H%C6%B0%C6%A1ng+trailer+ch%C3%ADnh+th%E1%BB%A9c" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr>
+              <td><a href="#film-F15">F15</a></td>
+              <td><strong>Happy Gilmore 2</strong> <br/><small>Happy Gilmore 2</small></td>
+              <td><span class="table-tag">Hài</span></td>
+              <td>2025<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Kyle Newacheck</td>
+              <td><a class="table-watch" href="https://www.netflix.com/title/81696722" rel="noopener" target="_blank">Netflix ↗</a><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=Happy+Gilmore+2+2025+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr>
+              <td><a href="#film-F16">F16</a></td>
+              <td><strong>Bộ Tứ Báo Thủ</strong> <span class="vn-badge">Phim Việt</span><br/><small>The 4 Rascals</small></td>
+              <td><span class="table-tag">Hài</span></td>
+              <td>2025<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Trấn Thành</td>
+              <td><a class="table-watch" href="https://www.netflix.com/title/82099318" rel="noopener" target="_blank">Netflix ↗</a><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=B%E1%BB%99+T%E1%BB%A9+B%C3%A1o+Th%E1%BB%A7+trailer+ch%C3%ADnh+th%E1%BB%A9c" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr>
+              <td><a href="#film-F18">F18</a></td>
+              <td><strong>Mưa Đỏ</strong> <span class="vn-badge">Phim Việt</span><br/><small>Red Rain</small></td>
+              <td><span class="table-tag">Chính kịch</span></td>
+              <td>2025<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Đặng Thái Huyền</td>
+              <td><small>Chiếu rạp</small><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=M%C6%B0a+%C4%90%E1%BB%8F+trailer+ch%C3%ADnh+th%E1%BB%A9c" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr>
+              <td><a href="#film-F20">F20</a></td>
+              <td><strong>My Oxford Year</strong> <br/><small>Một Năm Ở Oxford</small></td>
+              <td><span class="table-tag">Tình cảm</span></td>
+              <td>2025<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Iain Morris</td>
+              <td><a class="table-watch" href="https://www.netflix.com/title/81287950" rel="noopener" target="_blank">Netflix ↗</a><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=My+Oxford+Year+2025+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr>
+              <td><a href="#film-F21">F21</a></td>
+              <td><strong>Fear Street: Prom Queen</strong> <br/><small>Phố Fear: Nữ Hoàng Vũ Hội</small></td>
+              <td><span class="table-tag">Kinh dị</span></td>
+              <td>2025<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Matt Palmer</td>
+              <td><a class="table-watch" href="https://www.netflix.com/title/81512194" rel="noopener" target="_blank">Netflix ↗</a><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=Fear+Street%3A+Prom+Queen+2025+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr>
+              <td><a href="#film-F23">F23</a></td>
+              <td><strong>A House of Dynamite</strong> <br/><small>Ngôi Nhà Thuốc Nổ</small></td>
+              <td><span class="table-tag">Giật gân</span></td>
+              <td>2025<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Kathryn Bigelow</td>
+              <td><a class="table-watch" href="https://www.netflix.com/title/81744537" rel="noopener" target="_blank">Netflix ↗</a><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=A+House+of+Dynamite+2025+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr>
+              <td><a href="#film-F24">F24</a></td>
+              <td><strong>The Woman in Cabin 10</strong> <br/><small>Người Phụ Nữ Ở Cabin 10</small></td>
+              <td><span class="table-tag">Giật gân</span></td>
+              <td>2025<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Simon Stone</td>
+              <td><a class="table-watch" href="https://www.netflix.com/title/81222804" rel="noopener" target="_blank">Netflix ↗</a><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=The+Woman+in+Cabin+10+2025+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr>
+              <td><a href="#film-F25">F25</a></td>
+              <td><strong>Thám Tử Kiên: Kỳ Án Không Đầu</strong> <span class="vn-badge">Phim Việt</span><br/><small>Detective Kien: The Headless Horror</small></td>
+              <td><span class="table-tag">Giật gân</span></td>
+              <td>2025<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Victor Vũ</td>
+              <td><small>Chiếu rạp</small><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=Th%C3%A1m+T%E1%BB%AD+Ki%C3%AAn%3A+K%E1%BB%B3+%C3%81n+Kh%C3%B4ng+%C4%90%E1%BA%A7u+trailer+ch%C3%ADnh+th%E1%BB%A9c" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr>
+              <td><a href="#film-F26">F26</a></td>
+              <td><strong>The Electric State</strong> <br/><small>Vùng Đất Điện</small></td>
+              <td><span class="table-tag">Khoa học viễn tưởng</span></td>
+              <td>2025<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Anthony Russo, Joe Russo</td>
+              <td><a class="table-watch" href="https://www.netflix.com/title/81601562" rel="noopener" target="_blank">Netflix ↗</a><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=The+Electric+State+2025+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr>
+              <td><a href="#film-F27">F27</a></td>
+              <td><strong>Frankenstein</strong> <br/><small>Frankenstein</small></td>
+              <td><span class="table-tag">Khoa học viễn tưởng</span></td>
+              <td>2025<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Guillermo del Toro</td>
+              <td><a class="table-watch" href="https://www.netflix.com/title/81507921" rel="noopener" target="_blank">Netflix ↗</a><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=Frankenstein+2025+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr>
+              <td><a href="#film-F28">F28</a></td>
+              <td><strong>The Old Guard 2</strong> <br/><small>Hội Bất Tử 2</small></td>
+              <td><span class="table-tag">Kỳ ảo</span></td>
+              <td>2025<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Victoria Mahoney</td>
+              <td><a class="table-watch" href="https://www.netflix.com/title/81328881" rel="noopener" target="_blank">Netflix ↗</a><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=The+Old+Guard+2+2025+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr>
+              <td><a href="#film-F29">F29</a></td>
+              <td><strong>KPop Demon Hunters</strong> <br/><small>Thợ Săn Quỷ KPop</small></td>
+              <td><span class="table-tag">Hoạt hình</span></td>
+              <td>2025<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Maggie Kang, Chris Appelhans</td>
+              <td><a class="table-watch" href="https://www.netflix.com/title/81498621" rel="noopener" target="_blank">Netflix ↗</a><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=KPop+Demon+Hunters+2025+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr>
+              <td><a href="#film-F10">F10</a></td>
+              <td><strong>Damsel</strong> <br/><small>Nàng Hiến Tế</small></td>
+              <td><span class="table-tag">Kỳ ảo</span></td>
+              <td>2024<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Juan Carlos Fresnadillo</td>
+              <td><a class="table-watch" href="https://www.netflix.com/title/80991090" rel="noopener" target="_blank">Netflix ↗</a><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=Damsel+2024+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr>
+              <td><a href="#film-F17">F17</a></td>
+              <td><strong>Lật Mặt 7: Một Điều Ước</strong> <span class="vn-badge">Phim Việt</span><br/><small>Face Off 7: One Wish</small></td>
+              <td><span class="table-tag">Chính kịch</span></td>
+              <td>2024<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Lý Hải</td>
+              <td><small>Chiếu rạp</small><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=L%E1%BA%ADt+M%E1%BA%B7t+7%3A+M%E1%BB%99t+%C4%90i%E1%BB%81u+%C6%AF%E1%BB%9Bc+trailer+ch%C3%ADnh+th%E1%BB%A9c" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr>
+              <td><a href="#film-F19">F19</a></td>
+              <td><strong>Mai</strong> <span class="vn-badge">Phim Việt</span><br/><small>Mai</small></td>
+              <td><span class="table-tag">Tình cảm</span></td>
+              <td>2024<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Trấn Thành</td>
+              <td><a class="table-watch" href="https://www.netflix.com/title/81779693" rel="noopener" target="_blank">Netflix ↗</a><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=Mai+trailer+ch%C3%ADnh+th%E1%BB%A9c" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr>
+              <td><a href="#film-F22">F22</a></td>
+              <td><strong>Cám</strong> <span class="vn-badge">Phim Việt</span><br/><small>The Sisters</small></td>
+              <td><span class="table-tag">Kinh dị</span></td>
+              <td>2024<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Trần Hữu Tấn</td>
+              <td><small>Chiếu rạp</small><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=C%C3%A1m+trailer+ch%C3%ADnh+th%E1%BB%A9c" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr>
+              <td><a href="#film-F07">F07</a></td>
+              <td><strong>Leave the World Behind</strong> <br/><small>Bỏ Lại Thế Giới</small></td>
+              <td><span class="table-tag">Giật gân</span></td>
+              <td>2023<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Sam Esmail</td>
+              <td><a class="table-watch" href="https://www.netflix.com/title/81314956" rel="noopener" target="_blank">Netflix ↗</a><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=Leave+the+World+Behind+2023+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr>
+              <td><a href="#film-F02">F02</a></td>
+              <td><strong>The Gray Man</strong> <br/><small>Đặc Vụ Vô Hình</small></td>
+              <td><span class="table-tag">Hành động</span></td>
+              <td>2022<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Anthony Russo, Joe Russo</td>
+              <td><a class="table-watch" href="https://www.netflix.com/title/81160697" rel="noopener" target="_blank">Netflix ↗</a><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=The+Gray+Man+2022+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr>
+              <td><a href="#film-F03">F03</a></td>
+              <td><strong>Glass Onion</strong> <br/><small>Glass Onion: Kẻ Đâm Lén</small></td>
+              <td><span class="table-tag">Hài</span></td>
+              <td>2022<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Rian Johnson</td>
+              <td><a class="table-watch" href="https://www.netflix.com/title/81458416" rel="noopener" target="_blank">Netflix ↗</a><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=Glass+Onion+2022+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr>
+              <td><a href="#film-F08">F08</a></td>
+              <td><strong>The Adam Project</strong> <br/><small>Dự Án Adam</small></td>
+              <td><span class="table-tag">Khoa học viễn tưởng</span></td>
+              <td>2022<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Shawn Levy</td>
+              <td><a class="table-watch" href="https://www.netflix.com/title/81309354" rel="noopener" target="_blank">Netflix ↗</a><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=The+Adam+Project+2022+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr>
+              <td><a href="#film-F12">F12</a></td>
+              <td><strong>The Sea Beast</strong> <br/><small>Quái Vật Biển Khơi</small></td>
+              <td><span class="table-tag">Hoạt hình</span></td>
+              <td>2022<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Chris Williams</td>
+              <td><a class="table-watch" href="https://www.netflix.com/title/81018682" rel="noopener" target="_blank">Netflix ↗</a><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=The+Sea+Beast+2022+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr>
+              <td><a href="#film-F01">F01</a></td>
+              <td><strong>Extraction</strong> <br/><small>Nhiệm Vụ Giải Cứu</small></td>
+              <td><span class="table-tag">Hành động</span></td>
+              <td>2020<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Sam Hargrave</td>
+              <td><a class="table-watch" href="https://www.netflix.com/title/80230399" rel="noopener" target="_blank">Netflix ↗</a><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=Extraction+2020+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr>
+              <td><a href="#film-F04">F04</a></td>
+              <td><strong>Marriage Story</strong> <br/><small>Chuyện Hôn Nhân</small></td>
+              <td><span class="table-tag">Chính kịch</span></td>
+              <td>2019<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Noah Baumbach</td>
+              <td><a class="table-watch" href="https://www.netflix.com/title/80223779" rel="noopener" target="_blank">Netflix ↗</a><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=Marriage+Story+2019+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr>
+              <td><a href="#film-F11">F11</a></td>
+              <td><strong>Klaus</strong> <br/><small>Klaus</small></td>
+              <td><span class="table-tag">Hoạt hình</span></td>
+              <td>2019<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Sergio Pablos</td>
+              <td><a class="table-watch" href="https://www.netflix.com/title/80183187" rel="noopener" target="_blank">Netflix ↗</a><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=Klaus+2019+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr>
+              <td><a href="#film-F05">F05</a></td>
+              <td><strong>To All the Boys I&#x27;ve Loved Before</strong> <br/><small>Gửi Những Chàng Trai Tôi Từng Yêu</small></td>
+              <td><span class="table-tag">Tình cảm</span></td>
+              <td>2018<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Susan Johnson</td>
+              <td><a class="table-watch" href="https://www.netflix.com/title/80203147" rel="noopener" target="_blank">Netflix ↗</a><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=To+All+the+Boys+I%27ve+Loved+Before+2018+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr>
+              <td><a href="#film-F06">F06</a></td>
+              <td><strong>Bird Box</strong> <br/><small>Lồng Chim</small></td>
+              <td><span class="table-tag">Kinh dị</span></td>
+              <td>2018<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Susanne Bier</td>
+              <td><a class="table-watch" href="https://www.netflix.com/title/80196789" rel="noopener" target="_blank">Netflix ↗</a><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=Bird+Box+2018+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr>
+              <td><a href="#film-F09">F09</a></td>
+              <td><strong>Okja</strong> <br/><small>Okja</small></td>
+              <td><span class="table-tag">Kỳ ảo</span></td>
+              <td>2017<br/><small class="status-done">Đã phát hành</small></td>
+              <td>Bong Joon-ho</td>
+              <td><a class="table-watch" href="https://www.netflix.com/title/80091936" rel="noopener" target="_blank">Netflix ↗</a><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=Okja+2017+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+          </tbody>
+          <tbody class="tbody-upcoming">
+            <tr class="table-group"><th colspan="6" scope="rowgroup">Phim sắp chiếu</th></tr>
+            <tr class="row-upcoming">
+              <td><a href="#film-U01">U01</a></td>
+              <td><strong>Avengers: Ngày Tận Thế</strong> <br/><small>Avengers: Doomsday</small></td>
+              <td><span class="table-tag">Hành động</span></td>
+              <td>18/12/2026<br/><small class="status-soon">Sắp chiếu</small></td>
+              <td>Anthony Russo, Joe Russo</td>
+              <td><small>Rạp chiếu</small><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=Avengers+Doomsday+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr class="row-upcoming">
+              <td><a href="#film-U02">U02</a></td>
+              <td><strong>Loạn Thế: Nghĩa Khí Anh Hùng</strong> <span class="vn-badge">Phim Việt</span><br/><small>Phim Tết 2027</small></td>
+              <td><span class="table-tag">Hành động</span></td>
+              <td>Tết 2027<br/><small class="status-soon">Sắp chiếu</small></td>
+              <td>Dương Minh Chiến</td>
+              <td><small>Rạp chiếu</small><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=Lo%E1%BA%A1n+Th%E1%BA%BF+Ngh%C4%A9a+Kh%C3%AD+Anh+H%C3%B9ng+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr class="row-upcoming">
+              <td><a href="#film-U03">U03</a></td>
+              <td><strong>Jumanji: Thế Giới Đảo Chiều</strong> <br/><small>Jumanji: Open World</small></td>
+              <td><span class="table-tag">Hài</span></td>
+              <td>25/12/2026<br/><small class="status-soon">Sắp chiếu</small></td>
+              <td>Đang cập nhật</td>
+              <td><small>Rạp chiếu</small><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=Jumanji+Open+World+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr class="row-upcoming">
+              <td><a href="#film-U04">U04</a></td>
+              <td><strong>Người Mẹ Xấu</strong> <span class="vn-badge">Phim Việt</span><br/><small>Phim Tết Dương lịch 2027</small></td>
+              <td><span class="table-tag">Chính kịch</span></td>
+              <td>31/12/2026<br/><small class="status-soon">Sắp chiếu</small></td>
+              <td>Đang cập nhật</td>
+              <td><small>Rạp chiếu</small><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=Ng%C6%B0%E1%BB%9Di+M%E1%BA%B9+X%E1%BA%A5u+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr class="row-upcoming">
+              <td><a href="#film-U05">U05</a></td>
+              <td><strong>Viên Đạn Cuối Cùng</strong> <span class="vn-badge">Phim Việt</span><br/><small>Phim Tết Dương lịch 2027</small></td>
+              <td><span class="table-tag">Chính kịch</span></td>
+              <td>Tết Dương lịch 2027<br/><small class="status-soon">Sắp chiếu</small></td>
+              <td>Đang cập nhật</td>
+              <td><small>Rạp chiếu</small><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=Vi%C3%AAn+%C4%90%E1%BA%A1n+Cu%E1%BB%91i+C%C3%B9ng+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr class="row-upcoming">
+              <td><a href="#film-U06">U06</a></td>
+              <td><strong>Bắt Cá Ba Tay</strong> <span class="vn-badge">Phim Việt</span><br/><small>Phim hài lãng mạn Việt</small></td>
+              <td><span class="table-tag">Tình cảm</span></td>
+              <td>04/12/2026<br/><small class="status-soon">Sắp chiếu</small></td>
+              <td>Như Trang</td>
+              <td><small>Rạp chiếu</small><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=B%E1%BA%AFt+C%C3%A1+Ba+Tay+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr class="row-upcoming">
+              <td><a href="#film-U07">U07</a></td>
+              <td><strong>Con Mắt Thứ Ba</strong> <span class="vn-badge">Phim Việt</span><br/><small>Phim kinh dị Việt</small></td>
+              <td><span class="table-tag">Kinh dị</span></td>
+              <td>04/12/2026<br/><small class="status-soon">Sắp chiếu</small></td>
+              <td>Hàm Trần</td>
+              <td><small>Rạp chiếu (T18)</small><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=Con+M%E1%BA%AFt+Th%E1%BB%A9+Ba+phim+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr class="row-upcoming">
+              <td><a href="#film-U08">U08</a></td>
+              <td><strong>Trấn Yểm</strong> <span class="vn-badge">Phim Việt</span><br/><small>Phim kinh dị Việt</small></td>
+              <td><span class="table-tag">Kinh dị</span></td>
+              <td>25/12/2026<br/><small class="status-soon">Sắp chiếu</small></td>
+              <td>Đang cập nhật</td>
+              <td><small>Rạp chiếu</small><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=Tr%E1%BA%A5n+Y%E1%BB%83m+phim+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr class="row-upcoming">
+              <td><a href="#film-U09">U09</a></td>
+              <td><strong>Thám Tử Kiên: Lời Nguyền Hoàng Kim</strong> <span class="vn-badge">Phim Việt</span><br/><small>Phần tiếp theo của Kỳ Án Không Đầu</small></td>
+              <td><span class="table-tag">Giật gân</span></td>
+              <td>06/02/2027<br/><small class="status-soon">Sắp chiếu</small></td>
+              <td>Victor Vũ</td>
+              <td><small>Rạp chiếu</small><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=Th%C3%A1m+T%E1%BB%AD+Ki%C3%AAn+L%E1%BB%9Di+Nguy%E1%BB%81n+Ho%C3%A0ng+Kim+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr class="row-upcoming">
+              <td><a href="#film-U10">U10</a></td>
+              <td><strong>Dune: Hành Tinh Cát – Phần Ba</strong> <br/><small>Dune: Part Three</small></td>
+              <td><span class="table-tag">Khoa học viễn tưởng</span></td>
+              <td>18/12/2026<br/><small class="status-soon">Sắp chiếu</small></td>
+              <td>Denis Villeneuve</td>
+              <td><small>Rạp chiếu</small><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=Dune+Part+Three+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr class="row-upcoming">
+              <td><a href="#film-U11">U11</a></td>
+              <td><strong>Star Wars: Starfighter</strong> <br/><small>Chiến Tranh Giữa Các Vì Sao: Starfighter</small></td>
+              <td><span class="table-tag">Khoa học viễn tưởng</span></td>
+              <td>28/05/2027<br/><small class="status-soon">Sắp chiếu</small></td>
+              <td>Shawn Levy</td>
+              <td><small>Rạp chiếu (Mỹ, dự kiến)</small><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=Star+Wars+Starfighter+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr class="row-upcoming">
+              <td><a href="#film-U12">U12</a></td>
+              <td><strong>Narnia: The Magician&#x27;s Nephew</strong> <br/><small>Biên Niên Sử Narnia: Cháu Trai Pháp Sư</small></td>
+              <td><span class="table-tag">Kỳ ảo</span></td>
+              <td>02/2027 (rạp) · 02/04/2027 (Netflix)<br/><small class="status-soon">Sắp chiếu</small></td>
+              <td>Greta Gerwig</td>
+              <td><small>Rạp chiếu, sau đó Netflix</small><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=Narnia+The+Magician%27s+Nephew+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr class="row-upcoming">
+              <td><a href="#film-U13">U13</a></td>
+              <td><strong>Kỷ Băng Hà: Điểm Bùng Nổ</strong> <br/><small>Ice Age: Boiling Point</small></td>
+              <td><span class="table-tag">Hoạt hình</span></td>
+              <td>06/02/2027<br/><small class="status-soon">Sắp chiếu</small></td>
+              <td>John C. Donkin</td>
+              <td><small>Rạp chiếu</small><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=Ice+Age+Boiling+Point+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+            <tr class="row-upcoming">
+              <td><a href="#film-U14">U14</a></td>
+              <td><strong>Shrek 5</strong> <br/><small>Gã Chằn Tinh Tốt Bụng 5</small></td>
+              <td><span class="table-tag">Hoạt hình</span></td>
+              <td>30/06/2027<br/><small class="status-soon">Sắp chiếu</small></td>
+              <td>Brad Ableson, Walt Dohrn, Conrad Vernon</td>
+              <td><small>Rạp chiếu (Mỹ, dự kiến)</small><br/><a class="table-trailer" href="https://www.youtube.com/results?search_query=Shrek+5+official+trailer" rel="noopener" target="_blank">Trailer ↗</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== FORM ĐỀ XUẤT PHIM ===== -->
+    <section aria-labelledby="suggest-title" class="suggest" id="suggest">
+      <div class="suggest-intro">
+        <p class="eyebrow">Đề xuất</p>
+        <h2 id="suggest-title">Gợi ý một bộ phim</h2>
+        <p class="muted">Biểu mẫu tĩnh: sau khi gửi, bạn sẽ thấy trang “Đã ghi nhận thông tin”, nhưng phim <strong>không</strong> được thêm vào thư viện vì ứng dụng không có JavaScript, backend hay cơ sở dữ liệu.</p>
+      </div>
+
+      <form action="form-result.html" class="suggest-form" method="get">
+        <div class="form-grid">
+          <div class="field">
+            <label for="title">Tên phim <span class="req">*</span></label>
+            <input id="title" maxlength="100" minlength="2" name="title" placeholder="VD: Extraction 2" required type="text"/>
+          </div>
+          <div class="field">
+            <label for="year">Năm phát hành <span class="req">*</span></label>
+            <input id="year" max="2026" min="1900" name="year" placeholder="2023" required type="number"/>
+          </div>
+          <div class="field">
+            <label for="genre">Thể loại <span class="req">*</span></label>
+            <select id="genre" name="genre" required>
+              <option value="">— Chọn thể loại —</option>
+                <option value="action">Hành động (Action)</option>
+                <option value="comedy">Hài (Comedy)</option>
+                <option value="drama">Chính kịch (Drama)</option>
+                <option value="romance">Tình cảm (Romance)</option>
+                <option value="horror">Kinh dị (Horror)</option>
+                <option value="thriller">Giật gân (Thriller)</option>
+                <option value="scifi">Khoa học viễn tưởng (Sci-fi)</option>
+                <option value="fantasy">Kỳ ảo (Fantasy)</option>
+                <option value="animation">Hoạt hình (Animation)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="link">Link trang xem chính thức</label>
+            <input id="link" name="link" placeholder="https://www.netflix.com/title/..." type="url"/>
+          </div>
+
+          <fieldset class="field field-wide">
+            <legend>Mức độ yêu thích <span class="req">*</span></legend>
+            <div class="choice-row">
+              <label class="choice" for="r3"><input id="r3" name="rating" required type="radio" value="3"/>★★★ Khá hay</label>
+              <label class="choice" for="r4"><input id="r4" name="rating" type="radio" value="4"/>★★★★ Rất hay</label>
+              <label class="choice" for="r5"><input id="r5" name="rating" type="radio" value="5"/>★★★★★ Phải xem</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field field-wide">
+            <legend>Xem ở đâu?</legend>
+            <div class="choice-row">
+              <label class="choice" for="p1"><input id="p1" name="platform" type="checkbox" value="netflix"/>Netflix</label>
+              <label class="choice" for="p2"><input id="p2" name="platform" type="checkbox" value="disney"/>Disney+</label>
+              <label class="choice" for="p3"><input id="p3" name="platform" type="checkbox" value="cinema"/>Rạp chiếu</label>
+              <label class="choice" for="p4"><input id="p4" name="platform" type="checkbox" value="other"/>Khác</label>
+            </div>
+          </fieldset>
+
+          <div class="field field-wide">
+            <label for="reason">Vì sao nên xem? <span class="req">*</span></label>
+            <textarea id="reason" maxlength="600" minlength="10" name="reason" placeholder="Viết vài dòng cảm nhận (tối thiểu 10 ký tự)" required rows="4"></textarea>
+          </div>
+          <div class="field field-wide">
+            <label for="email">Email của bạn</label>
+            <input id="email" name="email" placeholder="ban@example.com" type="email"/>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-red" type="submit">Gửi đề xuất</button>
+          <button class="btn btn-ghost" type="reset">Nhập lại</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><b>CineVault</b> · WDLab03 — HTML5 &amp; CSS, không dùng JavaScript.</p>
+    <p class="muted">Poster phim thuộc bản quyền của nhà sản xuất/phát hành, sử dụng cho mục đích học tập. Đường dẫn xem lấy từ trang Netflix của từng phim; nút trailer mở kết quả tìm trailer chính thức trên YouTube. Lịch phim sắp chiếu tổng hợp từ Moveek, Galaxy Cinema và báo chí, cập nhật 25/11/2026.</p>
+  </footer>
+</div>
+
+<!-- ===== CHI TIẾT PHIM: popup hiện bằng :target ===== -->
+  <section aria-labelledby="t-F13" class="modal" id="film-F13">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Back in Action"><img alt="Poster phim Back in Action" class="modal-poster" src="assets/posters/f13.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F13 · Hành động (Action)</p>
+        <h2 id="t-F13">Back in Action</h2>
+        <p class="vi-title">Trở Lại Hành Động</p>
+        <p class="plot">Mười lăm năm sau khi rời CIA để lập gia đình, cặp điệp viên Matt và Emily buộc phải quay lại thế giới gián điệp khi danh tính bị lộ.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2025</dd>
+          <dt>Đạo diễn</dt><dd>Seth Gordon</dd>
+          <dt>Diễn viên</dt><dd>Jamie Foxx, Cameron Diaz, Glenn Close</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi xem</dt><dd>Netflix</dd>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn btn-red" href="https://www.netflix.com/title/81307099" rel="noopener" target="_blank">▶ Xem trên Netflix</a>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=Back+in+Action+2025+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-F14" class="modal" id="film-F14">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Truy Tìm Long Diên Hương"><img alt="Poster phim Truy Tìm Long Diên Hương" class="modal-poster" src="assets/posters/f14.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F14 · Hành động (Action)</p>
+        <h2 id="t-F14">Truy Tìm Long Diên Hương</h2>
+        <p class="vi-title">Fish, Fists and Ambergris</p>
+        <p class="plot">Báu vật của làng biển Long Diên Hương bị đánh cắp, mở ra cuộc truy đuổi đầy võ thuật, tiếng cười và tình làng nghĩa xóm của người miền biển.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2025</dd>
+          <dt>Đạo diễn</dt><dd>Dương Minh Chiến</dd>
+          <dt>Diễn viên</dt><dd>Quang Tuấn, Ma Ran Đô, Nguyên Thảo</dd>
+          <dt>Quốc gia</dt><dd>Việt Nam</dd>
+          <dt>Nơi xem</dt><dd>Netflix</dd>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn btn-red" href="https://www.netflix.com/title/82714645" rel="noopener" target="_blank">▶ Xem trên Netflix</a>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=Truy+T%C3%ACm+Long+Di%C3%AAn+H%C6%B0%C6%A1ng+trailer+ch%C3%ADnh+th%E1%BB%A9c" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-F15" class="modal" id="film-F15">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Happy Gilmore 2"><img alt="Poster phim Happy Gilmore 2" class="modal-poster" src="assets/posters/f15.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F15 · Hài (Comedy)</p>
+        <h2 id="t-F15">Happy Gilmore 2</h2>
+        <p class="vi-title">Happy Gilmore 2</p>
+        <p class="plot">Gần 30 năm sau, tay golf nóng tính Happy Gilmore xách gậy trở lại sân cỏ để giúp con mình theo đuổi giấc mơ.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2025</dd>
+          <dt>Đạo diễn</dt><dd>Kyle Newacheck</dd>
+          <dt>Diễn viên</dt><dd>Adam Sandler, Julie Bowen, Christopher McDonald</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi xem</dt><dd>Netflix</dd>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn btn-red" href="https://www.netflix.com/title/81696722" rel="noopener" target="_blank">▶ Xem trên Netflix</a>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=Happy+Gilmore+2+2025+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-F16" class="modal" id="film-F16">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Bộ Tứ Báo Thủ"><img alt="Poster phim Bộ Tứ Báo Thủ" class="modal-poster" src="assets/posters/f16.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F16 · Hài (Comedy)</p>
+        <h2 id="t-F16">Bộ Tứ Báo Thủ</h2>
+        <p class="vi-title">The 4 Rascals</p>
+        <p class="plot">Bộ tứ nổi tiếng chuyên “báo” bạn bè quyết định tự tay giải quyết một chuyện tình tay ba, kéo theo hàng loạt tình huống dở khóc dở cười.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2025</dd>
+          <dt>Đạo diễn</dt><dd>Trấn Thành</dd>
+          <dt>Diễn viên</dt><dd>Trấn Thành, Lê Dương Bảo Lâm, Lê Giang, Uyển Ân</dd>
+          <dt>Quốc gia</dt><dd>Việt Nam</dd>
+          <dt>Nơi xem</dt><dd>Netflix</dd>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn btn-red" href="https://www.netflix.com/title/82099318" rel="noopener" target="_blank">▶ Xem trên Netflix</a>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=B%E1%BB%99+T%E1%BB%A9+B%C3%A1o+Th%E1%BB%A7+trailer+ch%C3%ADnh+th%E1%BB%A9c" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-F18" class="modal" id="film-F18">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Mưa Đỏ"><img alt="Poster phim Mưa Đỏ" class="modal-poster" src="assets/posters/f18.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F18 · Chính kịch (Drama)</p>
+        <h2 id="t-F18">Mưa Đỏ</h2>
+        <p class="vi-title">Red Rain</p>
+        <p class="plot">Chuyển thể từ tiểu thuyết của Chu Lai, phim theo chân một tiểu đội lính trẻ trong 81 ngày đêm chiến đấu bảo vệ Thành cổ Quảng Trị năm 1972.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2025</dd>
+          <dt>Đạo diễn</dt><dd>Đặng Thái Huyền</dd>
+          <dt>Diễn viên</dt><dd>Đỗ Nhật Hoàng, Lê Hạ Anh, Steven Nguyễn</dd>
+          <dt>Quốc gia</dt><dd>Việt Nam</dd>
+          <dt>Nơi xem</dt><dd>Đã chiếu rạp — chưa xác nhận nền tảng trực tuyến</dd>
+        </dl>
+        <div class="modal-actions">
+          <span class="btn btn-disabled" title="Chưa có nền tảng trực tuyến được xác nhận">Chiếu rạp · chưa có bản online</span>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=M%C6%B0a+%C4%90%E1%BB%8F+trailer+ch%C3%ADnh+th%E1%BB%A9c" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-F20" class="modal" id="film-F20">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="My Oxford Year"><img alt="Poster phim My Oxford Year" class="modal-poster" src="assets/posters/f20.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F20 · Tình cảm (Romance)</p>
+        <h2 id="t-F20">My Oxford Year</h2>
+        <p class="vi-title">Một Năm Ở Oxford</p>
+        <p class="plot">Cô gái Mỹ đầy tham vọng thực hiện ước mơ học tại Oxford và phải lòng một chàng trai Anh đang giấu một bí mật có thể đảo lộn mọi kế hoạch.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2025</dd>
+          <dt>Đạo diễn</dt><dd>Iain Morris</dd>
+          <dt>Diễn viên</dt><dd>Sofia Carson, Corey Mylchreest, Dougray Scott</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi xem</dt><dd>Netflix</dd>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn btn-red" href="https://www.netflix.com/title/81287950" rel="noopener" target="_blank">▶ Xem trên Netflix</a>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=My+Oxford+Year+2025+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-F21" class="modal" id="film-F21">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Fear Street: Prom Queen"><img alt="Poster phim Fear Street: Prom Queen" class="modal-poster" src="assets/posters/f21.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F21 · Kinh dị (Horror)</p>
+        <h2 id="t-F21">Fear Street: Prom Queen</h2>
+        <p class="vi-title">Phố Fear: Nữ Hoàng Vũ Hội</p>
+        <p class="plot">Đêm dạ hội năm 1988 của trường Shadyside trở thành ác mộng khi các ứng viên nữ hoàng vũ hội lần lượt biến mất.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2025</dd>
+          <dt>Đạo diễn</dt><dd>Matt Palmer</dd>
+          <dt>Diễn viên</dt><dd>India Fowler, Suzanna Son, Katherine Waterston</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi xem</dt><dd>Netflix</dd>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn btn-red" href="https://www.netflix.com/title/81512194" rel="noopener" target="_blank">▶ Xem trên Netflix</a>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=Fear+Street%3A+Prom+Queen+2025+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-F23" class="modal" id="film-F23">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="A House of Dynamite"><img alt="Poster phim A House of Dynamite" class="modal-poster" src="assets/posters/f23.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F23 · Giật gân (Thriller)</p>
+        <h2 id="t-F23">A House of Dynamite</h2>
+        <p class="vi-title">Ngôi Nhà Thuốc Nổ</p>
+        <p class="plot">Một quả tên lửa không rõ nguồn gốc lao về phía nước Mỹ, mở ra cuộc chạy đua từng phút để tìm thủ phạm và quyết định cách đáp trả.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2025</dd>
+          <dt>Đạo diễn</dt><dd>Kathryn Bigelow</dd>
+          <dt>Diễn viên</dt><dd>Idris Elba, Rebecca Ferguson, Gabriel Basso</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi xem</dt><dd>Netflix</dd>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn btn-red" href="https://www.netflix.com/title/81744537" rel="noopener" target="_blank">▶ Xem trên Netflix</a>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=A+House+of+Dynamite+2025+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-F24" class="modal" id="film-F24">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="The Woman in Cabin 10"><img alt="Poster phim The Woman in Cabin 10" class="modal-poster" src="assets/posters/f24.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F24 · Giật gân (Thriller)</p>
+        <h2 id="t-F24">The Woman in Cabin 10</h2>
+        <p class="vi-title">Người Phụ Nữ Ở Cabin 10</p>
+        <p class="plot">Trên một du thuyền sang trọng, nữ nhà báo chứng kiến một hành khách rơi xuống biển. Không ai tin cô, và cô phải liều mạng tìm ra sự thật.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2025</dd>
+          <dt>Đạo diễn</dt><dd>Simon Stone</dd>
+          <dt>Diễn viên</dt><dd>Keira Knightley, Guy Pearce, Hannah Waddingham</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi xem</dt><dd>Netflix</dd>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn btn-red" href="https://www.netflix.com/title/81222804" rel="noopener" target="_blank">▶ Xem trên Netflix</a>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=The+Woman+in+Cabin+10+2025+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-F25" class="modal" id="film-F25">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Thám Tử Kiên: Kỳ Án Không Đầu"><img alt="Poster phim Thám Tử Kiên: Kỳ Án Không Đầu" class="modal-poster" src="assets/posters/f25.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F25 · Giật gân (Thriller)</p>
+        <h2 id="t-F25">Thám Tử Kiên: Kỳ Án Không Đầu</h2>
+        <p class="vi-title">Detective Kien: The Headless Horror</p>
+        <p class="plot">Dưới thời nhà Nguyễn, thám tử Kiên điều tra chuỗi án mạng mất đầu ở một ngôi làng, nơi nỗi sợ ma quỷ đang che mờ sự thật.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2025</dd>
+          <dt>Đạo diễn</dt><dd>Victor Vũ</dd>
+          <dt>Diễn viên</dt><dd>Quốc Huy, Đinh Ngọc Diệp</dd>
+          <dt>Quốc gia</dt><dd>Việt Nam</dd>
+          <dt>Nơi xem</dt><dd>Đã chiếu rạp — chưa xác nhận nền tảng trực tuyến</dd>
+        </dl>
+        <div class="modal-actions">
+          <span class="btn btn-disabled" title="Chưa có nền tảng trực tuyến được xác nhận">Chiếu rạp · chưa có bản online</span>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=Th%C3%A1m+T%E1%BB%AD+Ki%C3%AAn%3A+K%E1%BB%B3+%C3%81n+Kh%C3%B4ng+%C4%90%E1%BA%A7u+trailer+ch%C3%ADnh+th%E1%BB%A9c" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-F26" class="modal" id="film-F26">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="The Electric State"><img alt="Poster phim The Electric State" class="modal-poster" src="assets/posters/f26.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F26 · Khoa học viễn tưởng (Sci-fi)</p>
+        <h2 id="t-F26">The Electric State</h2>
+        <p class="vi-title">Vùng Đất Điện</p>
+        <p class="plot">Một cô gái mồ côi cùng chú robot bí ẩn băng qua miền đất hoang sau chiến tranh người máy để tìm người em trai thất lạc.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2025</dd>
+          <dt>Đạo diễn</dt><dd>Anthony Russo, Joe Russo</dd>
+          <dt>Diễn viên</dt><dd>Millie Bobby Brown, Chris Pratt, Ke Huy Quan</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi xem</dt><dd>Netflix</dd>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn btn-red" href="https://www.netflix.com/title/81601562" rel="noopener" target="_blank">▶ Xem trên Netflix</a>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=The+Electric+State+2025+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-F27" class="modal" id="film-F27">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Frankenstein"><img alt="Poster phim Frankenstein" class="modal-poster" src="assets/posters/f27.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F27 · Khoa học viễn tưởng (Sci-fi)</p>
+        <h2 id="t-F27">Frankenstein</h2>
+        <p class="vi-title">Frankenstein</p>
+        <p class="plot">Guillermo del Toro tái hiện câu chuyện kinh điển của Mary Shelley về nhà khoa học thiên tài và sinh vật ra đời từ tham vọng của ông.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2025</dd>
+          <dt>Đạo diễn</dt><dd>Guillermo del Toro</dd>
+          <dt>Diễn viên</dt><dd>Oscar Isaac, Jacob Elordi, Mia Goth</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi xem</dt><dd>Netflix</dd>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn btn-red" href="https://www.netflix.com/title/81507921" rel="noopener" target="_blank">▶ Xem trên Netflix</a>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=Frankenstein+2025+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-F28" class="modal" id="film-F28">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="The Old Guard 2"><img alt="Poster phim The Old Guard 2" class="modal-poster" src="assets/posters/f28.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F28 · Kỳ ảo (Fantasy)</p>
+        <h2 id="t-F28">The Old Guard 2</h2>
+        <p class="vi-title">Hội Bất Tử 2</p>
+        <p class="plot">Andy và nhóm chiến binh bất tử trở lại với sứ mệnh bảo vệ nhân loại, đối đầu một kẻ thù mới đủ sức đe dọa chính sự bất tử của họ.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2025</dd>
+          <dt>Đạo diễn</dt><dd>Victoria Mahoney</dd>
+          <dt>Diễn viên</dt><dd>Charlize Theron, KiKi Layne, Uma Thurman</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi xem</dt><dd>Netflix</dd>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn btn-red" href="https://www.netflix.com/title/81328881" rel="noopener" target="_blank">▶ Xem trên Netflix</a>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=The+Old+Guard+2+2025+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-F29" class="modal" id="film-F29">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="KPop Demon Hunters"><img alt="Poster phim KPop Demon Hunters" class="modal-poster" src="assets/posters/f29.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F29 · Hoạt hình (Animation)</p>
+        <h2 id="t-F29">KPop Demon Hunters</h2>
+        <p class="vi-title">Thợ Săn Quỷ KPop</p>
+        <p class="plot">Ngoài những đêm diễn cháy vé, ba cô gái nhóm nhạc K-pop bí mật dùng sức mạnh của mình để bảo vệ người hâm mộ khỏi lũ quỷ.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2025</dd>
+          <dt>Đạo diễn</dt><dd>Maggie Kang, Chris Appelhans</dd>
+          <dt>Diễn viên</dt><dd>Arden Cho, Ahn Hyo-seop, Ken Jeong (lồng tiếng)</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi xem</dt><dd>Netflix</dd>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn btn-red" href="https://www.netflix.com/title/81498621" rel="noopener" target="_blank">▶ Xem trên Netflix</a>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=KPop+Demon+Hunters+2025+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-F10" class="modal" id="film-F10">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Damsel"><img alt="Poster phim Damsel" class="modal-poster" src="assets/posters/f10.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F10 · Kỳ ảo (Fantasy)</p>
+        <h2 id="t-F10">Damsel</h2>
+        <p class="vi-title">Nàng Hiến Tế</p>
+        <p class="plot">Cuộc hôn nhân với một hoàng tử hóa ra là cái bẫy: cô gái trẻ bị dâng làm vật hiến tế cho một con rồng phun lửa, và phải tự chiến đấu để sống sót.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2024</dd>
+          <dt>Đạo diễn</dt><dd>Juan Carlos Fresnadillo</dd>
+          <dt>Diễn viên</dt><dd>Millie Bobby Brown, Ray Winstone, Robin Wright</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi xem</dt><dd>Netflix</dd>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn btn-red" href="https://www.netflix.com/title/80991090" rel="noopener" target="_blank">▶ Xem trên Netflix</a>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=Damsel+2024+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-F17" class="modal" id="film-F17">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Lật Mặt 7: Một Điều Ước"><img alt="Poster phim Lật Mặt 7: Một Điều Ước" class="modal-poster" src="assets/posters/f17.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F17 · Chính kịch (Drama)</p>
+        <h2 id="t-F17">Lật Mặt 7: Một Điều Ước</h2>
+        <p class="vi-title">Face Off 7: One Wish</p>
+        <p class="plot">Bà Hai 73 tuổi một mình nuôi năm người con khôn lớn. Sau một tai nạn, bà phải nương nhờ các con và bắt đầu tự hỏi về ý nghĩa của tình thân.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2024</dd>
+          <dt>Đạo diễn</dt><dd>Lý Hải</dd>
+          <dt>Diễn viên</dt><dd>Thanh Hiền, Trương Minh Cường, Đinh Y Nhung</dd>
+          <dt>Quốc gia</dt><dd>Việt Nam</dd>
+          <dt>Nơi xem</dt><dd>Đã chiếu rạp — chưa xác nhận nền tảng trực tuyến</dd>
+        </dl>
+        <div class="modal-actions">
+          <span class="btn btn-disabled" title="Chưa có nền tảng trực tuyến được xác nhận">Chiếu rạp · chưa có bản online</span>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=L%E1%BA%ADt+M%E1%BA%B7t+7%3A+M%E1%BB%99t+%C4%90i%E1%BB%81u+%C6%AF%E1%BB%9Bc+trailer+ch%C3%ADnh+th%E1%BB%A9c" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-F19" class="modal" id="film-F19">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Mai"><img alt="Poster phim Mai" class="modal-poster" src="assets/posters/f19.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F19 · Tình cảm (Romance)</p>
+        <h2 id="t-F19">Mai</h2>
+        <p class="vi-title">Mai</p>
+        <p class="plot">Một người mẹ đơn thân nhiều tổn thương bước vào mối tình chênh lệch tuổi với chàng trai trẻ, giữa những định kiến và bóng tối từ quá khứ.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2024</dd>
+          <dt>Đạo diễn</dt><dd>Trấn Thành</dd>
+          <dt>Diễn viên</dt><dd>Phương Anh Đào, Tuấn Trần, Trấn Thành</dd>
+          <dt>Quốc gia</dt><dd>Việt Nam</dd>
+          <dt>Nơi xem</dt><dd>Netflix</dd>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn btn-red" href="https://www.netflix.com/title/81779693" rel="noopener" target="_blank">▶ Xem trên Netflix</a>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=Mai+trailer+ch%C3%ADnh+th%E1%BB%A9c" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-F22" class="modal" id="film-F22">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Cám"><img alt="Poster phim Cám" class="modal-poster" src="assets/posters/f22.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F22 · Kinh dị (Horror)</p>
+        <h2 id="t-F22">Cám</h2>
+        <p class="vi-title">The Sisters</p>
+        <p class="plot">Dị bản kinh dị đẫm máu của truyện cổ tích Tấm Cám, kể từ góc nhìn của Cám trong một thế giới vừa quen thuộc vừa rùng rợn.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2024</dd>
+          <dt>Đạo diễn</dt><dd>Trần Hữu Tấn</dd>
+          <dt>Diễn viên</dt><dd>Lam Thanh My, Rima Thanh Vy, Thúy Diễm</dd>
+          <dt>Quốc gia</dt><dd>Việt Nam</dd>
+          <dt>Nơi xem</dt><dd>Đã chiếu rạp — chưa xác nhận nền tảng trực tuyến</dd>
+        </dl>
+        <div class="modal-actions">
+          <span class="btn btn-disabled" title="Chưa có nền tảng trực tuyến được xác nhận">Chiếu rạp · chưa có bản online</span>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=C%C3%A1m+trailer+ch%C3%ADnh+th%E1%BB%A9c" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-F07" class="modal" id="film-F07">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Leave the World Behind"><img alt="Poster phim Leave the World Behind" class="modal-poster" src="assets/posters/f07.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F07 · Giật gân (Thriller)</p>
+        <h2 id="t-F07">Leave the World Behind</h2>
+        <p class="vi-title">Bỏ Lại Thế Giới</p>
+        <p class="plot">Kỳ nghỉ của một gia đình bị xáo trộn khi hai người lạ gõ cửa giữa đêm, đúng lúc mọi liên lạc bị cắt đứt và những dấu hiệu bất thường xuất hiện khắp nơi.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2023</dd>
+          <dt>Đạo diễn</dt><dd>Sam Esmail</dd>
+          <dt>Diễn viên</dt><dd>Julia Roberts, Mahershala Ali, Ethan Hawke</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi xem</dt><dd>Netflix</dd>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn btn-red" href="https://www.netflix.com/title/81314956" rel="noopener" target="_blank">▶ Xem trên Netflix</a>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=Leave+the+World+Behind+2023+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-F02" class="modal" id="film-F02">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="The Gray Man"><img alt="Poster phim The Gray Man" class="modal-poster" src="assets/posters/f02.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F02 · Hành động (Action)</p>
+        <h2 id="t-F02">The Gray Man</h2>
+        <p class="vi-title">Đặc Vụ Vô Hình</p>
+        <p class="plot">Một đặc vụ CIA hoạt động trong bóng tối vô tình nắm được bí mật của chính cơ quan mình, và trở thành mục tiêu của một sát thủ được thuê để thủ tiêu anh bằng mọi giá.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2022</dd>
+          <dt>Đạo diễn</dt><dd>Anthony Russo, Joe Russo</dd>
+          <dt>Diễn viên</dt><dd>Ryan Gosling, Chris Evans, Ana de Armas</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi xem</dt><dd>Netflix</dd>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn btn-red" href="https://www.netflix.com/title/81160697" rel="noopener" target="_blank">▶ Xem trên Netflix</a>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=The+Gray+Man+2022+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-F03" class="modal" id="film-F03">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Glass Onion"><img alt="Poster phim Glass Onion" class="modal-poster" src="assets/posters/f03.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F03 · Hài (Comedy)</p>
+        <h2 id="t-F03">Glass Onion</h2>
+        <p class="vi-title">Glass Onion: Kẻ Đâm Lén</p>
+        <p class="plot">Thám tử Benoit Blanc tới một hòn đảo Hy Lạp, nơi một tỷ phú công nghệ tổ chức trò chơi phá án cho nhóm bạn thân. Trò chơi nhanh chóng biến thành vụ án thật, đầy những màn châm biếm.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2022</dd>
+          <dt>Đạo diễn</dt><dd>Rian Johnson</dd>
+          <dt>Diễn viên</dt><dd>Daniel Craig, Edward Norton, Janelle Monáe</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi xem</dt><dd>Netflix</dd>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn btn-red" href="https://www.netflix.com/title/81458416" rel="noopener" target="_blank">▶ Xem trên Netflix</a>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=Glass+Onion+2022+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-F08" class="modal" id="film-F08">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="The Adam Project"><img alt="Poster phim The Adam Project" class="modal-poster" src="assets/posters/f08.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F08 · Khoa học viễn tưởng (Sci-fi)</p>
+        <h2 id="t-F08">The Adam Project</h2>
+        <p class="vi-title">Dự Án Adam</p>
+        <p class="plot">Một phi công du hành thời gian rơi nhầm về năm 2022 và phải hợp sức với chính mình lúc 12 tuổi trong nhiệm vụ cứu lấy tương lai.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2022</dd>
+          <dt>Đạo diễn</dt><dd>Shawn Levy</dd>
+          <dt>Diễn viên</dt><dd>Ryan Reynolds, Walker Scobell, Mark Ruffalo</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi xem</dt><dd>Netflix</dd>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn btn-red" href="https://www.netflix.com/title/81309354" rel="noopener" target="_blank">▶ Xem trên Netflix</a>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=The+Adam+Project+2022+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-F12" class="modal" id="film-F12">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="The Sea Beast"><img alt="Poster phim The Sea Beast" class="modal-poster" src="assets/posters/f12.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F12 · Hoạt hình (Animation)</p>
+        <h2 id="t-F12">The Sea Beast</h2>
+        <p class="vi-title">Quái Vật Biển Khơi</p>
+        <p class="plot">Một cô bé trốn lên con tàu của thợ săn quái vật biển huyền thoại, mở ra chuyến phiêu lưu vào vùng biển chưa ai khám phá và thay đổi cả lịch sử.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2022</dd>
+          <dt>Đạo diễn</dt><dd>Chris Williams</dd>
+          <dt>Diễn viên</dt><dd>Karl Urban, Zaris-Angel Hator, Jared Harris (lồng tiếng)</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi xem</dt><dd>Netflix</dd>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn btn-red" href="https://www.netflix.com/title/81018682" rel="noopener" target="_blank">▶ Xem trên Netflix</a>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=The+Sea+Beast+2022+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-F01" class="modal" id="film-F01">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Extraction"><img alt="Poster phim Extraction" class="modal-poster" src="assets/posters/f01.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F01 · Hành động (Action)</p>
+        <h2 id="t-F01">Extraction</h2>
+        <p class="vi-title">Nhiệm Vụ Giải Cứu</p>
+        <p class="plot">Một lính đánh thuê dày dạn kinh nghiệm nhận nhiệm vụ giải cứu con trai bị bắt cóc của một trùm ma túy tại Dhaka. Nhiệm vụ nhanh chóng biến thành cuộc chạy đua sinh tồn giữa thành phố đầy hiểm nguy.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2020</dd>
+          <dt>Đạo diễn</dt><dd>Sam Hargrave</dd>
+          <dt>Diễn viên</dt><dd>Chris Hemsworth, Rudhraksh Jaiswal, Randeep Hooda</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi xem</dt><dd>Netflix</dd>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn btn-red" href="https://www.netflix.com/title/80230399" rel="noopener" target="_blank">▶ Xem trên Netflix</a>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=Extraction+2020+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-F04" class="modal" id="film-F04">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Marriage Story"><img alt="Poster phim Marriage Story" class="modal-poster" src="assets/posters/f04.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F04 · Chính kịch (Drama)</p>
+        <h2 id="t-F04">Marriage Story</h2>
+        <p class="vi-title">Chuyện Hôn Nhân</p>
+        <p class="plot">Một cặp vợ chồng nghệ sĩ trải qua cuộc ly hôn kéo dài giữa hai bờ nước Mỹ, cố gắng giữ cho gia đình còn nguyên vẹn vì đứa con trai nhỏ.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2019</dd>
+          <dt>Đạo diễn</dt><dd>Noah Baumbach</dd>
+          <dt>Diễn viên</dt><dd>Scarlett Johansson, Adam Driver, Laura Dern</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi xem</dt><dd>Netflix</dd>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn btn-red" href="https://www.netflix.com/title/80223779" rel="noopener" target="_blank">▶ Xem trên Netflix</a>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=Marriage+Story+2019+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-F11" class="modal" id="film-F11">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Klaus"><img alt="Poster phim Klaus" class="modal-poster" src="assets/posters/f11.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F11 · Hoạt hình (Animation)</p>
+        <h2 id="t-F11">Klaus</h2>
+        <p class="vi-title">Klaus</p>
+        <p class="plot">Một anh đưa thư ích kỷ và một ông thợ làm đồ chơi sống ẩn dật kết thành đôi bạn bất ngờ, mang niềm vui đến cho một thị trấn lạnh lẽo, u ám.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2019</dd>
+          <dt>Đạo diễn</dt><dd>Sergio Pablos</dd>
+          <dt>Diễn viên</dt><dd>Jason Schwartzman, J.K. Simmons, Rashida Jones (lồng tiếng)</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi xem</dt><dd>Netflix</dd>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn btn-red" href="https://www.netflix.com/title/80183187" rel="noopener" target="_blank">▶ Xem trên Netflix</a>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=Klaus+2019+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-F05" class="modal" id="film-F05">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="To All the Boys I&#x27;ve Loved Before"><img alt="Poster phim To All the Boys I&#x27;ve Loved Before" class="modal-poster" src="assets/posters/f05.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F05 · Tình cảm (Romance)</p>
+        <h2 id="t-F05">To All the Boys I&#x27;ve Loved Before</h2>
+        <p class="vi-title">Gửi Những Chàng Trai Tôi Từng Yêu</p>
+        <p class="plot">Những lá thư tình bí mật Lara Jean viết cho năm người cô từng thầm thương bỗng bị gửi đi hết, khiến cuộc sống trung học yên ả của cô đảo lộn hoàn toàn.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2018</dd>
+          <dt>Đạo diễn</dt><dd>Susan Johnson</dd>
+          <dt>Diễn viên</dt><dd>Lana Condor, Noah Centineo, Janel Parrish</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi xem</dt><dd>Netflix</dd>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn btn-red" href="https://www.netflix.com/title/80203147" rel="noopener" target="_blank">▶ Xem trên Netflix</a>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=To+All+the+Boys+I%27ve+Loved+Before+2018+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-F06" class="modal" id="film-F06">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Bird Box"><img alt="Poster phim Bird Box" class="modal-poster" src="assets/posters/f06.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F06 · Kinh dị (Horror)</p>
+        <h2 id="t-F06">Bird Box</h2>
+        <p class="vi-title">Lồng Chim</p>
+        <p class="plot">Một thế lực vô hình khiến bất kỳ ai nhìn thấy đều rơi vào cơn điên loạn. Một người mẹ phải bịt mắt, đưa hai đứa trẻ xuôi dòng sông để tìm nơi trú ẩn.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2018</dd>
+          <dt>Đạo diễn</dt><dd>Susanne Bier</dd>
+          <dt>Diễn viên</dt><dd>Sandra Bullock, Trevante Rhodes, John Malkovich</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi xem</dt><dd>Netflix</dd>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn btn-red" href="https://www.netflix.com/title/80196789" rel="noopener" target="_blank">▶ Xem trên Netflix</a>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=Bird+Box+2018+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-F09" class="modal" id="film-F09">
+    <a aria-label="Đóng" class="modal-backdrop" href="#library"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#library">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Okja"><img alt="Poster phim Okja" class="modal-poster" src="assets/posters/f09.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">F09 · Kỳ ảo (Fantasy)</p>
+        <h2 id="t-F09">Okja</h2>
+        <p class="vi-title">Okja</p>
+        <p class="plot">Cô bé Mija liều mình ngăn một tập đoàn đa quốc gia bắt đi người bạn thân nhất của mình: Okja, chú siêu lợn được tạo ra bằng công nghệ biến đổi gen.</p>
+        <dl class="info">
+          <dt>Năm phát hành</dt><dd>2017</dd>
+          <dt>Đạo diễn</dt><dd>Bong Joon-ho</dd>
+          <dt>Diễn viên</dt><dd>Ahn Seo-hyun, Tilda Swinton, Jake Gyllenhaal</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi xem</dt><dd>Netflix</dd>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn btn-red" href="https://www.netflix.com/title/80091936" rel="noopener" target="_blank">▶ Xem trên Netflix</a>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=Okja+2017+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer (YouTube)</a>
+          <a class="btn btn-ghost" href="#library">← Quay lại thư viện</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-U01" class="modal" id="film-U01">
+    <a aria-label="Đóng" class="modal-backdrop" href="#upcoming"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#upcoming">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Avengers: Ngày Tận Thế"><img alt="Poster phim Avengers: Ngày Tận Thế" class="modal-poster" src="assets/posters/u01.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">U01 · Sắp chiếu · Hành động (Action)</p>
+        <h2 id="t-U01">Avengers: Ngày Tận Thế</h2>
+        <p class="vi-title">Avengers: Doomsday</p>
+        <p class="plot">Phần phim Avengers mới của Marvel Studios, đánh dấu sự trở lại của Robert Downey Jr. Nội dung chi tiết chưa được công bố.</p>
+        <dl class="info">
+          <dt>Ngày chiếu</dt><dd><strong class="gold">18/12/2026</strong> (dự kiến)</dd>
+          <dt>Đạo diễn</dt><dd>Anthony Russo, Joe Russo</dd>
+          <dt>Diễn viên</dt><dd>Robert Downey Jr., Pedro Pascal, Chris Hemsworth</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi chiếu</dt><dd>Rạp chiếu</dd>
+        </dl>
+        <div class="modal-actions">
+          <span class="btn btn-disabled">Chưa phát hành</span>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=Avengers+Doomsday+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer / teaser (YouTube)</a>
+          <a class="btn btn-ghost" href="#upcoming">← Quay lại Sắp chiếu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-U02" class="modal" id="film-U02">
+    <a aria-label="Đóng" class="modal-backdrop" href="#upcoming"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#upcoming">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Loạn Thế: Nghĩa Khí Anh Hùng"><img alt="Poster phim Loạn Thế: Nghĩa Khí Anh Hùng" class="modal-poster" src="assets/posters/u02.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">U02 · Sắp chiếu · Hành động (Action)</p>
+        <h2 id="t-U02">Loạn Thế: Nghĩa Khí Anh Hùng</h2>
+        <p class="vi-title">Phim Tết 2027</p>
+        <p class="plot">Dự án mới của đạo diễn Truy Tìm Long Diên Hương, tham gia đường đua phim Tết Đinh Mùi 2027.</p>
+        <dl class="info">
+          <dt>Ngày chiếu</dt><dd><strong class="gold">Tết 2027</strong> (dự kiến)</dd>
+          <dt>Đạo diễn</dt><dd>Dương Minh Chiến</dd>
+          <dt>Diễn viên</dt><dd>Đang cập nhật</dd>
+          <dt>Quốc gia</dt><dd>Việt Nam</dd>
+          <dt>Nơi chiếu</dt><dd>Rạp chiếu</dd>
+        </dl>
+        <div class="modal-actions">
+          <span class="btn btn-disabled">Chưa phát hành</span>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=Lo%E1%BA%A1n+Th%E1%BA%BF+Ngh%C4%A9a+Kh%C3%AD+Anh+H%C3%B9ng+trailer" rel="noopener" target="_blank">🎬 Xem trailer / teaser (YouTube)</a>
+          <a class="btn btn-ghost" href="#upcoming">← Quay lại Sắp chiếu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-U03" class="modal" id="film-U03">
+    <a aria-label="Đóng" class="modal-backdrop" href="#upcoming"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#upcoming">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Jumanji: Thế Giới Đảo Chiều"><img alt="Poster phim Jumanji: Thế Giới Đảo Chiều" class="modal-poster" src="assets/posters/u03.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">U03 · Sắp chiếu · Hài (Comedy)</p>
+        <h2 id="t-U03">Jumanji: Thế Giới Đảo Chiều</h2>
+        <p class="vi-title">Jumanji: Open World</p>
+        <p class="plot">Phần tiếp theo của loạt phim phiêu lưu hài Jumanji, ra rạp đúng dịp Giáng sinh.</p>
+        <dl class="info">
+          <dt>Ngày chiếu</dt><dd><strong class="gold">25/12/2026</strong> (dự kiến)</dd>
+          <dt>Đạo diễn</dt><dd>Đang cập nhật</dd>
+          <dt>Diễn viên</dt><dd>Dwayne Johnson, Jack Black, Karen Gillan</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi chiếu</dt><dd>Rạp chiếu</dd>
+        </dl>
+        <div class="modal-actions">
+          <span class="btn btn-disabled">Chưa phát hành</span>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=Jumanji+Open+World+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer / teaser (YouTube)</a>
+          <a class="btn btn-ghost" href="#upcoming">← Quay lại Sắp chiếu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-U04" class="modal" id="film-U04">
+    <a aria-label="Đóng" class="modal-backdrop" href="#upcoming"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#upcoming">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Người Mẹ Xấu"><img alt="Poster phim Người Mẹ Xấu" class="modal-poster" src="assets/posters/u04.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">U04 · Sắp chiếu · Chính kịch (Drama)</p>
+        <h2 id="t-U04">Người Mẹ Xấu</h2>
+        <p class="vi-title">Phim Tết Dương lịch 2027</p>
+        <p class="plot">Hồng Đào và Steven Nguyễn vào vai hai mẹ con trong phim Việt ra mắt sát Tết Dương lịch 2027.</p>
+        <dl class="info">
+          <dt>Ngày chiếu</dt><dd><strong class="gold">31/12/2026</strong> (dự kiến)</dd>
+          <dt>Đạo diễn</dt><dd>Đang cập nhật</dd>
+          <dt>Diễn viên</dt><dd>Hồng Đào, Steven Nguyễn</dd>
+          <dt>Quốc gia</dt><dd>Việt Nam</dd>
+          <dt>Nơi chiếu</dt><dd>Rạp chiếu</dd>
+        </dl>
+        <div class="modal-actions">
+          <span class="btn btn-disabled">Chưa phát hành</span>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=Ng%C6%B0%E1%BB%9Di+M%E1%BA%B9+X%E1%BA%A5u+trailer" rel="noopener" target="_blank">🎬 Xem trailer / teaser (YouTube)</a>
+          <a class="btn btn-ghost" href="#upcoming">← Quay lại Sắp chiếu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-U05" class="modal" id="film-U05">
+    <a aria-label="Đóng" class="modal-backdrop" href="#upcoming"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#upcoming">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Viên Đạn Cuối Cùng"><img alt="Poster phim Viên Đạn Cuối Cùng" class="modal-poster" src="assets/posters/u05.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">U05 · Sắp chiếu · Chính kịch (Drama)</p>
+        <h2 id="t-U05">Viên Đạn Cuối Cùng</h2>
+        <p class="vi-title">Phim Tết Dương lịch 2027</p>
+        <p class="plot">Phim về xạ thủ Hoàng Xuân Vinh, người giành huy chương vàng Olympic đầu tiên cho thể thao Việt Nam.</p>
+        <dl class="info">
+          <dt>Ngày chiếu</dt><dd><strong class="gold">Tết Dương lịch 2027</strong> (dự kiến)</dd>
+          <dt>Đạo diễn</dt><dd>Đang cập nhật</dd>
+          <dt>Diễn viên</dt><dd>Đang cập nhật</dd>
+          <dt>Quốc gia</dt><dd>Việt Nam</dd>
+          <dt>Nơi chiếu</dt><dd>Rạp chiếu</dd>
+        </dl>
+        <div class="modal-actions">
+          <span class="btn btn-disabled">Chưa phát hành</span>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=Vi%C3%AAn+%C4%90%E1%BA%A1n+Cu%E1%BB%91i+C%C3%B9ng+trailer" rel="noopener" target="_blank">🎬 Xem trailer / teaser (YouTube)</a>
+          <a class="btn btn-ghost" href="#upcoming">← Quay lại Sắp chiếu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-U06" class="modal" id="film-U06">
+    <a aria-label="Đóng" class="modal-backdrop" href="#upcoming"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#upcoming">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Bắt Cá Ba Tay"><img alt="Poster phim Bắt Cá Ba Tay" class="modal-poster" src="assets/posters/u06.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">U06 · Sắp chiếu · Tình cảm (Romance)</p>
+        <h2 id="t-U06">Bắt Cá Ba Tay</h2>
+        <p class="vi-title">Phim hài lãng mạn Việt</p>
+        <p class="plot">Phim hài lãng mạn đánh dấu tác phẩm điện ảnh đầu tay của đạo diễn MV Như Trang. Ba nam chính mang ba màu sắc: người đàn ông thành đạt điềm đạm, anh chàng hài hước gần gũi và cậu trai trẻ trung nổi loạn. Nữ chính và câu chuyện cụ thể chưa được tiết lộ.</p>
+        <dl class="info">
+          <dt>Ngày chiếu</dt><dd><strong class="gold">04/12/2026</strong> (dự kiến)</dd>
+          <dt>Đạo diễn</dt><dd>Như Trang</dd>
+          <dt>Diễn viên</dt><dd>Steven Nguyễn, Ngô Kiến Huy, Otis</dd>
+          <dt>Quốc gia</dt><dd>Việt Nam</dd>
+          <dt>Nơi chiếu</dt><dd>Rạp chiếu</dd>
+        </dl>
+        <div class="modal-actions">
+          <span class="btn btn-disabled">Chưa phát hành</span>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=B%E1%BA%AFt+C%C3%A1+Ba+Tay+trailer" rel="noopener" target="_blank">🎬 Xem trailer / teaser (YouTube)</a>
+          <a class="btn btn-ghost" href="#upcoming">← Quay lại Sắp chiếu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-U07" class="modal" id="film-U07">
+    <a aria-label="Đóng" class="modal-backdrop" href="#upcoming"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#upcoming">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Con Mắt Thứ Ba"><img alt="Poster phim Con Mắt Thứ Ba" class="modal-poster" src="assets/posters/u07.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">U07 · Sắp chiếu · Kinh dị (Horror)</p>
+        <h2 id="t-U07">Con Mắt Thứ Ba</h2>
+        <p class="vi-title">Phim kinh dị Việt</p>
+        <p class="plot">Phim kinh dị mới của đạo diễn Hàm Trần (Tử Chiến Trên Không), khai thác thế giới tâm linh với mức độ kinh dị rõ rệt hơn các phim trước. Phim gắn nhãn T18.</p>
+        <dl class="info">
+          <dt>Ngày chiếu</dt><dd><strong class="gold">04/12/2026</strong> (dự kiến)</dd>
+          <dt>Đạo diễn</dt><dd>Hàm Trần</dd>
+          <dt>Diễn viên</dt><dd>Đang cập nhật</dd>
+          <dt>Quốc gia</dt><dd>Việt Nam</dd>
+          <dt>Nơi chiếu</dt><dd>Rạp chiếu (T18)</dd>
+        </dl>
+        <div class="modal-actions">
+          <span class="btn btn-disabled">Chưa phát hành</span>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=Con+M%E1%BA%AFt+Th%E1%BB%A9+Ba+phim+trailer" rel="noopener" target="_blank">🎬 Xem trailer / teaser (YouTube)</a>
+          <a class="btn btn-ghost" href="#upcoming">← Quay lại Sắp chiếu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-U08" class="modal" id="film-U08">
+    <a aria-label="Đóng" class="modal-backdrop" href="#upcoming"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#upcoming">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Trấn Yểm"><img alt="Poster phim Trấn Yểm" class="modal-poster" src="assets/posters/u08.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">U08 · Sắp chiếu · Kinh dị (Horror)</p>
+        <h2 id="t-U08">Trấn Yểm</h2>
+        <p class="vi-title">Phim kinh dị Việt</p>
+        <p class="plot">Phim Việt ra rạp dịp Giáng sinh 2026. Nội dung chi tiết đang được cập nhật.</p>
+        <dl class="info">
+          <dt>Ngày chiếu</dt><dd><strong class="gold">25/12/2026</strong> (dự kiến)</dd>
+          <dt>Đạo diễn</dt><dd>Đang cập nhật</dd>
+          <dt>Diễn viên</dt><dd>Đang cập nhật</dd>
+          <dt>Quốc gia</dt><dd>Việt Nam</dd>
+          <dt>Nơi chiếu</dt><dd>Rạp chiếu</dd>
+        </dl>
+        <div class="modal-actions">
+          <span class="btn btn-disabled">Chưa phát hành</span>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=Tr%E1%BA%A5n+Y%E1%BB%83m+phim+trailer" rel="noopener" target="_blank">🎬 Xem trailer / teaser (YouTube)</a>
+          <a class="btn btn-ghost" href="#upcoming">← Quay lại Sắp chiếu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-U09" class="modal" id="film-U09">
+    <a aria-label="Đóng" class="modal-backdrop" href="#upcoming"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#upcoming">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Thám Tử Kiên: Lời Nguyền Hoàng Kim"><img alt="Poster phim Thám Tử Kiên: Lời Nguyền Hoàng Kim" class="modal-poster" src="assets/posters/u09.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">U09 · Sắp chiếu · Giật gân (Thriller)</p>
+        <h2 id="t-U09">Thám Tử Kiên: Lời Nguyền Hoàng Kim</h2>
+        <p class="vi-title">Phần tiếp theo của Kỳ Án Không Đầu</p>
+        <p class="plot">Thám tử Kiên trở lại với vụ án mới, tiếp nối thành công của Kỳ Án Không Đầu. Phim đã hoàn tất bản dựng, dự kiến ra rạp mùng 1 Tết 2027.</p>
+        <dl class="info">
+          <dt>Ngày chiếu</dt><dd><strong class="gold">06/02/2027</strong> (dự kiến)</dd>
+          <dt>Đạo diễn</dt><dd>Victor Vũ</dd>
+          <dt>Diễn viên</dt><dd>Quốc Huy</dd>
+          <dt>Quốc gia</dt><dd>Việt Nam</dd>
+          <dt>Nơi chiếu</dt><dd>Rạp chiếu</dd>
+        </dl>
+        <div class="modal-actions">
+          <span class="btn btn-disabled">Chưa phát hành</span>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=Th%C3%A1m+T%E1%BB%AD+Ki%C3%AAn+L%E1%BB%9Di+Nguy%E1%BB%81n+Ho%C3%A0ng+Kim+trailer" rel="noopener" target="_blank">🎬 Xem trailer / teaser (YouTube)</a>
+          <a class="btn btn-ghost" href="#upcoming">← Quay lại Sắp chiếu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-U10" class="modal" id="film-U10">
+    <a aria-label="Đóng" class="modal-backdrop" href="#upcoming"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#upcoming">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Dune: Hành Tinh Cát – Phần Ba"><img alt="Poster phim Dune: Hành Tinh Cát – Phần Ba" class="modal-poster" src="assets/posters/u10.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">U10 · Sắp chiếu · Khoa học viễn tưởng (Sci-fi)</p>
+        <h2 id="t-U10">Dune: Hành Tinh Cát – Phần Ba</h2>
+        <p class="vi-title">Dune: Part Three</p>
+        <p class="plot">Chương tiếp theo của loạt phim khoa học viễn tưởng Dune, ra rạp cùng ngày với Avengers: Ngày Tận Thế.</p>
+        <dl class="info">
+          <dt>Ngày chiếu</dt><dd><strong class="gold">18/12/2026</strong> (dự kiến)</dd>
+          <dt>Đạo diễn</dt><dd>Denis Villeneuve</dd>
+          <dt>Diễn viên</dt><dd>Đang cập nhật</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi chiếu</dt><dd>Rạp chiếu</dd>
+        </dl>
+        <div class="modal-actions">
+          <span class="btn btn-disabled">Chưa phát hành</span>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=Dune+Part+Three+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer / teaser (YouTube)</a>
+          <a class="btn btn-ghost" href="#upcoming">← Quay lại Sắp chiếu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-U11" class="modal" id="film-U11">
+    <a aria-label="Đóng" class="modal-backdrop" href="#upcoming"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#upcoming">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Star Wars: Starfighter"><img alt="Poster phim Star Wars: Starfighter" class="modal-poster" src="assets/posters/u11.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">U11 · Sắp chiếu · Khoa học viễn tưởng (Sci-fi)</p>
+        <h2 id="t-U11">Star Wars: Starfighter</h2>
+        <p class="vi-title">Chiến Tranh Giữa Các Vì Sao: Starfighter</p>
+        <p class="plot">Trong một thiên hà đang tái thiết, một phi công đơn độc bị cuốn vào nhiệm vụ quan trọng khi những mối đe dọa mới xuất hiện.</p>
+        <dl class="info">
+          <dt>Ngày chiếu</dt><dd><strong class="gold">28/05/2027</strong> (dự kiến)</dd>
+          <dt>Đạo diễn</dt><dd>Shawn Levy</dd>
+          <dt>Diễn viên</dt><dd>Ryan Gosling, Mia Goth, Amy Adams</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi chiếu</dt><dd>Rạp chiếu (Mỹ, dự kiến)</dd>
+        </dl>
+        <div class="modal-actions">
+          <span class="btn btn-disabled">Chưa phát hành</span>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=Star+Wars+Starfighter+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer / teaser (YouTube)</a>
+          <a class="btn btn-ghost" href="#upcoming">← Quay lại Sắp chiếu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-U12" class="modal" id="film-U12">
+    <a aria-label="Đóng" class="modal-backdrop" href="#upcoming"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#upcoming">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Narnia: The Magician&#x27;s Nephew"><img alt="Poster phim Narnia: The Magician&#x27;s Nephew" class="modal-poster" src="assets/posters/u12.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">U12 · Sắp chiếu · Kỳ ảo (Fantasy)</p>
+        <h2 id="t-U12">Narnia: The Magician&#x27;s Nephew</h2>
+        <p class="vi-title">Biên Niên Sử Narnia: Cháu Trai Pháp Sư</p>
+        <p class="plot">Greta Gerwig chuyển thể phần tiền truyện của Biên Niên Sử Narnia. Phim chiếu rạp trước rồi mới lên Netflix.</p>
+        <dl class="info">
+          <dt>Ngày chiếu</dt><dd><strong class="gold">02/2027 (rạp) · 02/04/2027 (Netflix)</strong> (dự kiến)</dd>
+          <dt>Đạo diễn</dt><dd>Greta Gerwig</dd>
+          <dt>Diễn viên</dt><dd>Meryl Streep (lồng tiếng Aslan), Daniel Craig, Carey Mulligan</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi chiếu</dt><dd>Rạp chiếu, sau đó Netflix</dd>
+        </dl>
+        <div class="modal-actions">
+          <span class="btn btn-disabled">Chưa phát hành</span>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=Narnia+The+Magician%27s+Nephew+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer / teaser (YouTube)</a>
+          <a class="btn btn-ghost" href="#upcoming">← Quay lại Sắp chiếu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-U13" class="modal" id="film-U13">
+    <a aria-label="Đóng" class="modal-backdrop" href="#upcoming"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#upcoming">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Kỷ Băng Hà: Điểm Bùng Nổ"><img alt="Poster phim Kỷ Băng Hà: Điểm Bùng Nổ" class="modal-poster" src="assets/posters/u13.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">U13 · Sắp chiếu · Hoạt hình (Animation)</p>
+        <h2 id="t-U13">Kỷ Băng Hà: Điểm Bùng Nổ</h2>
+        <p class="vi-title">Ice Age: Boiling Point</p>
+        <p class="plot">Manny, Sid, Diego và Scrat trở lại trong chuyến phiêu lưu giữa vùng đất dung nham, khởi chiếu tại Việt Nam đúng mùng 1 Tết 2027.</p>
+        <dl class="info">
+          <dt>Ngày chiếu</dt><dd><strong class="gold">06/02/2027</strong> (dự kiến)</dd>
+          <dt>Đạo diễn</dt><dd>John C. Donkin</dd>
+          <dt>Diễn viên</dt><dd>Đang cập nhật</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi chiếu</dt><dd>Rạp chiếu</dd>
+        </dl>
+        <div class="modal-actions">
+          <span class="btn btn-disabled">Chưa phát hành</span>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=Ice+Age+Boiling+Point+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer / teaser (YouTube)</a>
+          <a class="btn btn-ghost" href="#upcoming">← Quay lại Sắp chiếu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="t-U14" class="modal" id="film-U14">
+    <a aria-label="Đóng" class="modal-backdrop" href="#upcoming"></a>
+    <div class="modal-card">
+      <a aria-label="Đóng chi tiết" class="modal-close" href="#upcoming">✕</a>
+      <span class="poster modal-poster-wrap" data-title="Shrek 5"><img alt="Poster phim Shrek 5" class="modal-poster" src="assets/posters/u14.jpg"/></span>
+      <div class="modal-body">
+        <p class="eyebrow">U14 · Sắp chiếu · Hoạt hình (Animation)</p>
+        <h2 id="t-U14">Shrek 5</h2>
+        <p class="vi-title">Gã Chằn Tinh Tốt Bụng 5</p>
+        <p class="plot">Gã chằn tinh xanh lá trở lại màn ảnh sau nhiều năm vắng bóng, cùng dàn lồng tiếng quen thuộc.</p>
+        <dl class="info">
+          <dt>Ngày chiếu</dt><dd><strong class="gold">30/06/2027</strong> (dự kiến)</dd>
+          <dt>Đạo diễn</dt><dd>Brad Ableson, Walt Dohrn, Conrad Vernon</dd>
+          <dt>Diễn viên</dt><dd>Mike Myers, Cameron Diaz, Eddie Murphy</dd>
+          <dt>Quốc gia</dt><dd>Quốc tế</dd>
+          <dt>Nơi chiếu</dt><dd>Rạp chiếu (Mỹ, dự kiến)</dd>
+        </dl>
+        <div class="modal-actions">
+          <span class="btn btn-disabled">Chưa phát hành</span>
+          <a class="btn btn-gold" href="https://www.youtube.com/results?search_query=Shrek+5+official+trailer" rel="noopener" target="_blank">🎬 Xem trailer / teaser (YouTube)</a>
+          <a class="btn btn-ghost" href="#upcoming">← Quay lại Sắp chiếu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

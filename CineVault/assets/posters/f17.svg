@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a1f33"/><stop offset="1" stop-color="#070b16"/></linearGradient></defs>
+<rect width="400" height="600" fill="url(#bg)"/>
+<g transform="translate(40,30) rotate(-10 200 250) translate(200 250) scale(0.8) translate(-200 -250)"><rect x="0" y="0" width="200" height="600" fill="#000" opacity=".35"/><circle cx="200" cy="250" r="105" fill="#f4b942" opacity=".9"/><path d="M200 145 A105 105 0 0 0 200 355Z" fill="#0b1226"/><path d="M60 115h280" stroke="#e63946" stroke-width="4"/></g><circle cx="150" cy="115" r="18" fill="#f4b942" opacity=".55"/><rect x="0" y="418" width="400" height="6" fill="#f4b942" opacity=".6"/>
+<rect x="0" y="0" width="400" height="600" fill="none" stroke="#f4b942" stroke-width="2" opacity=".35"/>
+<text x="200" y="40" fill="#f4b942" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="4" text-anchor="middle">DRAMA · 2024</text>
+<text fill="#ffffff" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="44" font-weight="800" text-anchor="middle" letter-spacing="1"><tspan x="200" y="458">LẬT MẶT 7:</tspan><tspan x="200" y="500">MỘT ĐIỀU ƯỚC</tspan></text>
+<rect x="300" y="550" width="80" height="26" rx="6" fill="#e63946"/><text x="340" y="568" fill="#fff" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="800" text-anchor="middle">PHIM VIỆT</text><text x="150" y="575" fill="#9aa6c1" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="12" text-anchor="middle" letter-spacing="2">ẢNH MINH HỌA · CINEVAULT</text>
+</svg>

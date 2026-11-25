@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a0f1f"/><stop offset="1" stop-color="#070b16"/></linearGradient></defs>
+<rect width="400" height="600" fill="url(#bg)"/>
+<g transform="translate(0,0) rotate(0 200 250) translate(200 250) scale(1) translate(-200 -250)"><path d="M200 360 C60 270 90 150 160 150 C185 150 200 170 200 185 C200 170 215 150 240 150 C310 150 340 270 200 360Z" fill="#e63946"/><path d="M90 420 Q200 380 310 420" fill="none" stroke="#f4b942" stroke-width="3"/></g>
+<rect x="0" y="0" width="400" height="600" fill="none" stroke="#f4b942" stroke-width="2" opacity=".35"/>
+<text x="200" y="40" fill="#f4b942" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="4" text-anchor="middle">ROMANCE · 2018</text>
+<text fill="#ffffff" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="32" font-weight="800" text-anchor="middle" letter-spacing="1"><tspan x="200" y="439">TO ALL THE</tspan><tspan x="200" y="470">BOYS I&#x27;VE</tspan><tspan x="200" y="500">LOVED BEFORE</tspan></text>
+<text x="200" y="575" fill="#9aa6c1" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="12" text-anchor="middle" letter-spacing="2">ẢNH MINH HỌA · CINEVAULT</text>
+</svg>

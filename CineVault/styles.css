@@ -1,0 +1,784 @@
+/* =========================================================
+   CineVault — Thư viện phim cá nhân (WDLab03 · Phần 2)
+   Palette: xanh đen đậm · đỏ điện ảnh · vàng ánh đèn
+   ========================================================= */
+
+/* ---------- 1. CSS VARIABLES ---------- */
+:root {
+  --bg: #070b16;          /* xanh đen đậm */
+  --panel: #0e1528;
+  --panel2: #151f3a;
+  --line: #24304f;
+  --text: #f3f4f8;
+  --muted: #9aa6c1;
+  --red: #e63946;         /* đỏ màn nhung */
+  --red-dark: #b5172b;
+  --gold: #f4b942;        /* vàng đèn chiếu */
+  --gold-soft: #f4b94222;
+
+  --radius: 14px;
+  --radius-lg: 22px;
+  --shadow: 0 18px 40px #00000080;
+  /* Font hệ thống có đủ dấu tiếng Việt (Segoe UI trên Windows, Roboto trên Android, SF trên macOS/iOS) */
+  --display: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --sans: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --header-h: 68px;
+}
+
+/* ---------- 2. RESET & BASE ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 12px); }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(900px 500px at 100% 0, #e639461f, transparent 60%),
+    radial-gradient(700px 400px at 0 20%, #f4b94212, transparent 60%),
+    var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.55;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+h1, h2, h3 { margin: 0; line-height: 1.1; }
+.muted { color: var(--muted); }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--gold);
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.filter-input { position: absolute; opacity: 0; pointer-events: none; }
+
+/* ---------- 3. HEADER (Flexbox + sticky) ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  height: var(--header-h);
+  padding: 0 40px;
+  background: #070b16e6;
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font: 800 1.5rem var(--display);
+  letter-spacing: .06em;
+  text-decoration: none;
+}
+.logo b { color: var(--red); font-weight: 800; }
+.logo-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--red);
+  color: var(--gold);
+  font-size: .9rem;
+}
+
+.main-nav { display: flex; gap: 4px; }
+.main-nav a {
+  position: relative;
+  padding: 8px 14px;
+  border-radius: 8px;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: .92rem;
+  text-decoration: none;
+}
+.main-nav a:hover { color: var(--text); background: var(--panel2); }
+/* gạch chân vàng khi hover — pseudo-element + position absolute */
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 2px;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform .2s;
+}
+.main-nav a:hover::after { transform: scaleX(1); }
+
+.header-badge {
+  margin: 0 0 0 auto;
+  padding: 6px 12px;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  color: var(--gold);
+  font-size: .8rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+main { display: flex; flex-direction: column; gap: 56px; padding: 36px 40px 50px; }
+
+/* ---------- 4. BUTTONS ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  font: 700 .95rem var(--sans);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .15s, background .2s, border-color .2s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-red { background: var(--red); color: #fff; }
+.btn-red:hover { background: var(--red-dark); }
+.btn-gold { background: var(--gold); color: #1a1204; }
+.btn-ghost { background: transparent; border-color: var(--line); color: var(--text); }
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+.btn-disabled { background: var(--panel2); color: var(--muted); border-color: var(--line); cursor: not-allowed; font-size: .85rem; }
+.btn-disabled:hover { transform: none; }
+
+/* ---------- 5. HERO ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 40px;
+  padding: 44px;
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(115deg, #0e1528 0%, #0e1528 50%, #2a0c14 100%);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  position: relative;
+}
+/* dải phim trang trí (repeating-linear-gradient) */
+.hero::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 14px;
+  background: repeating-linear-gradient(90deg, var(--gold) 0 18px, transparent 18px 30px);
+  opacity: .25;
+}
+
+.hero h1 {
+  font: 900 clamp(2.8rem, 6.4vw, 5rem) var(--display);
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+}
+.hero h1 span { color: var(--red); }
+.lead { max-width: 52ch; margin: 18px 0 0; color: var(--muted); font-size: 1.02rem; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+
+/* thẻ phim nổi bật: poster + thông tin chồng lên (position absolute) */
+.feature {
+  position: relative;
+  justify-self: center;
+  width: min(100%, 330px);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 30px 60px #000a, 0 0 0 1px var(--line);
+  transform: rotate(2deg);
+}
+.feature-poster { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; }
+.feature-info {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 3;            /* nằm trên ảnh poster (z-index: 1) */
+  padding: 60px 18px 18px;
+  background: linear-gradient(transparent, #070b16 38%);
+}
+.ribbon {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--gold);
+  color: #1a1204;
+  font-size: .72rem;
+  font-weight: 800;
+}
+.feature h2 { margin: 10px 0 4px; font: 800 1.8rem var(--display); }
+.feature p { margin: 0 0 12px; color: var(--muted); font-size: .88rem; }
+.feature-actions { display: flex; gap: 8px; }
+.feature-actions .btn { padding: 9px 14px; font-size: .85rem; }
+
+/* ---------- 6. STATS (Grid 4 cột) ---------- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: -30px;
+}
+.stat {
+  padding: 18px 20px;
+  border-radius: var(--radius);
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+.stat b { display: block; font: 800 2rem var(--display); color: var(--gold); }
+.stat span { color: var(--muted); font-size: .88rem; }
+.stat:first-child b { color: var(--red); }
+
+/* ---------- 7. SECTION HEAD ---------- */
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-left: 14px;
+  border-left: 4px solid var(--red);
+}
+.section-head h2 { font: 800 2rem var(--display); text-transform: uppercase; }
+.section-head p.muted { margin: 0; }
+
+/* ---------- 8. GENRE CARDS (label của radio) ---------- */
+.genre-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 12px;
+}
+.genre-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 16px 40px;
+  border-radius: var(--radius);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  cursor: pointer;
+  transition: border-color .2s, transform .2s;
+}
+.genre-card:hover { transform: translateY(-3px); border-color: var(--gold); }
+.genre-en { color: var(--red); font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.genre-card strong { font-size: 1.1rem; }
+.genre-card small { color: var(--muted); font-size: .82rem; }
+.genre-count {
+  position: absolute;
+  left: 16px;
+  bottom: 12px;
+  color: var(--gold);
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+/* ---------- 9. CHIPS + FILTER (:checked ~) ---------- */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+.chips label {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--muted);
+  font-size: .88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.chips label:hover { color: var(--text); border-color: var(--gold); }
+
+/* chip + thẻ thể loại đang chọn — attribute selector [for=...] */
+#g-all:checked ~ .page .chips label[for="g-all"],
+#g-action:checked ~ .page label[for="g-action"],
+#g-comedy:checked ~ .page label[for="g-comedy"],
+#g-drama:checked ~ .page label[for="g-drama"],
+#g-romance:checked ~ .page label[for="g-romance"],
+#g-horror:checked ~ .page label[for="g-horror"],
+#g-thriller:checked ~ .page label[for="g-thriller"],
+#g-scifi:checked ~ .page label[for="g-scifi"],
+#g-fantasy:checked ~ .page label[for="g-fantasy"],
+#g-animation:checked ~ .page label[for="g-animation"],
+#g-vn:checked ~ .page label[for="g-vn"] {
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff;
+}
+#g-action:checked ~ .page .genre-card[for="g-action"] small,
+#g-comedy:checked ~ .page .genre-card[for="g-comedy"] small,
+#g-drama:checked ~ .page .genre-card[for="g-drama"] small,
+#g-romance:checked ~ .page .genre-card[for="g-romance"] small,
+#g-horror:checked ~ .page .genre-card[for="g-horror"] small,
+#g-thriller:checked ~ .page .genre-card[for="g-thriller"] small,
+#g-scifi:checked ~ .page .genre-card[for="g-scifi"] small,
+#g-fantasy:checked ~ .page .genre-card[for="g-fantasy"] small,
+#g-animation:checked ~ .page .genre-card[for="g-animation"] small,
+#g-action:checked ~ .page .genre-card[for="g-action"] .genre-en,
+#g-comedy:checked ~ .page .genre-card[for="g-comedy"] .genre-en,
+#g-drama:checked ~ .page .genre-card[for="g-drama"] .genre-en,
+#g-romance:checked ~ .page .genre-card[for="g-romance"] .genre-en,
+#g-horror:checked ~ .page .genre-card[for="g-horror"] .genre-en,
+#g-thriller:checked ~ .page .genre-card[for="g-thriller"] .genre-en,
+#g-scifi:checked ~ .page .genre-card[for="g-scifi"] .genre-en,
+#g-fantasy:checked ~ .page .genre-card[for="g-fantasy"] .genre-en,
+#g-animation:checked ~ .page .genre-card[for="g-animation"] .genre-en { color: #fff; }
+
+.filter-input:focus-visible ~ .page .chips { outline: 2px dashed var(--gold); outline-offset: 6px; border-radius: 12px; }
+
+/* ẩn phim không khớp thể loại */
+#g-action:checked ~ .page .film:not([data-genre="action"]),
+#g-comedy:checked ~ .page .film:not([data-genre="comedy"]),
+#g-drama:checked ~ .page .film:not([data-genre="drama"]),
+#g-romance:checked ~ .page .film:not([data-genre="romance"]),
+#g-horror:checked ~ .page .film:not([data-genre="horror"]),
+#g-thriller:checked ~ .page .film:not([data-genre="thriller"]),
+#g-scifi:checked ~ .page .film:not([data-genre="scifi"]),
+#g-fantasy:checked ~ .page .film:not([data-genre="fantasy"]),
+#g-animation:checked ~ .page .film:not([data-genre="animation"]),
+#g-vn:checked ~ .page .film:not([data-country="vn"]) {
+  display: none;
+}
+.chips .chip-vn { border-color: var(--gold); color: var(--gold); }
+
+/* nhãn Phim Việt trên poster & bảng */
+.vn-badge {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 5px;
+  background: var(--red);
+  color: #fff;
+  font-size: .66rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+.poster .vn-badge { position: absolute; top: 10px; right: 10px; }
+
+/* ---------- 10. FILM GRID (Grid auto-fill + minmax) ---------- */
+.film-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 26px 20px;
+}
+.film-link { display: flex; flex-direction: column; gap: 6px; text-decoration: none; }
+
+.poster {
+  position: relative;
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 24px #0008;
+}
+.poster img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  background: var(--panel2);
+  transition: transform .35s;
+}
+.film-code {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: #070b16cc;
+  color: var(--gold);
+  font: 700 .72rem var(--sans);
+  letter-spacing: .08em;
+}
+.film-hover {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #e6394699;
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity .25s;
+}
+.film-link:hover .poster img,
+.film-link:focus-visible .poster img { transform: scale(1.06); }
+.film-link:hover .film-hover,
+.film-link:focus-visible .film-hover { opacity: 1; }
+.film-link:hover .poster { border-color: var(--gold); }
+
+.film-tag {
+  align-self: flex-start;
+  margin-top: 6px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--gold-soft);
+  color: var(--gold);
+  font-size: .72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.film-link h3 { font-size: 1.02rem; }
+.film-link p { margin: 0; color: var(--muted); font-size: .82rem; }
+
+/* ---------- 10b. KHUNG POSTER DỰ PHÒNG ----------
+   Khi chưa có file .jpg, ảnh lỗi bị ẩn chữ alt (font-size: 0) và khung hiện
+   tên phim từ data-title bằng ::before. Khi ảnh tải được, ảnh nằm đè lên (z-index). */
+.poster {
+  background:
+    repeating-linear-gradient(135deg, #ffffff06 0 12px, transparent 12px 24px),
+    linear-gradient(160deg, #2a0c14, var(--panel2) 60%, #0b1226);
+}
+.poster::before {
+  content: attr(data-title);
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  text-align: center;
+  color: var(--gold);
+  font: 800 1.05rem var(--display);
+  text-transform: uppercase;
+  line-height: 1.25;
+}
+.poster img {
+  position: relative;
+  z-index: 1;
+  font-size: 0;          /* ẩn chữ alt khi ảnh lỗi */
+  color: transparent;
+  background: transparent !important;  /* để lộ tên phim phía sau khi chưa có ảnh */
+}
+.poster > span { z-index: 2; }
+.modal-poster-wrap, .feature-poster-wrap { display: block; position: relative; border-radius: 12px; overflow: hidden; }
+.feature-poster-wrap { border-radius: 0; }
+.modal-poster-wrap .modal-poster { display: block; }
+.modal-poster-wrap { align-self: start; }
+
+/* ---------- 10c. PHIM SẮP CHIẾU ---------- */
+.upcoming {
+  padding: 30px;
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(180deg, #f4b9420f, transparent 40%),
+    var(--panel);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--gold);
+}
+.upcoming .section-head { border-left-color: var(--gold); }
+.soon-ribbon {
+  position: absolute;
+  top: 14px;
+  right: -34px;
+  width: 130px;
+  padding: 4px 0;
+  background: var(--gold);
+  color: #1a1204;
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-align: center;
+  text-transform: uppercase;
+  transform: rotate(40deg);
+  box-shadow: 0 4px 10px #0006;
+}
+/* attribute selector: thẻ sắp chiếu hơi nhạt, rõ dần khi hover */
+.film[class~="film-upcoming"] .poster img { filter: saturate(.75) brightness(.9); transition: filter .3s, transform .35s; }
+.film-upcoming .film-link:hover .poster img { filter: none; }
+.film-upcoming .film-hover { background: #f4b94299; color: #1a1204; }
+.release-date {
+  align-self: flex-start;
+  margin-top: 6px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: .78rem;
+  font-weight: 700;
+}
+.gold { color: var(--gold); }
+
+/* Poster teaser cho phim chưa có poster chính thức (U06 – EM) */
+.poster-tba {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  padding: 20px 14px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 38%, #e639464d 0 22%, transparent 55%),
+    linear-gradient(180deg, #2a0c14 0%, #0b1226 100%);
+  border: 1px dashed #f4b94266;
+  border-radius: inherit;
+}
+.tba-top { color: var(--muted); font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.tba-title {
+  color: #fff;
+  font: 900 clamp(2.6rem, 7vw, 3.6rem) var(--display);
+  letter-spacing: .12em;
+  text-shadow: 0 0 24px #e63946aa;
+}
+.tba-date { color: var(--gold); font-weight: 800; font-size: .85rem; }
+.tba-note {
+  margin-top: 8px;
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: .68rem;
+}
+
+/* ---------- 11. DATA TABLE ---------- */
+.table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+table { width: 100%; min-width: 720px; border-collapse: collapse; font-size: .9rem; }
+th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+thead th {
+  position: sticky;
+  top: 0;
+  background: var(--panel2);
+  color: var(--gold);
+  font-size: .76rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+tbody tr:nth-child(even) { background: #ffffff05; }
+tbody tr:hover { background: #e6394614; }
+td small { color: var(--muted); }
+.status-done { color: #7fd1a5 !important; }
+.status-soon { color: var(--gold) !important; font-weight: 700; }
+.table-group th {
+  padding: 10px 16px;
+  background: #f4b9421f;
+  color: var(--gold);
+  font-size: .78rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.row-upcoming td:first-child a { color: var(--gold); }
+td a { color: var(--gold); font-weight: 700; }
+.table-tag { padding: 2px 8px; border-radius: 4px; background: var(--panel2); font-size: .8rem; }
+.table-watch { color: var(--red); text-decoration: none; }
+.table-watch:hover { text-decoration: underline; }
+.table-trailer { color: var(--gold); font-weight: 600; font-size: .82rem; text-decoration: none; }
+.table-trailer:hover { text-decoration: underline; }
+
+/* ---------- 12. FORM ---------- */
+.suggest {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.7fr);
+  gap: 34px;
+  padding: 34px;
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--gold);
+}
+.suggest-intro h2 { font: 800 2rem var(--display); text-transform: uppercase; margin-bottom: 12px; }
+
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.field-wide { grid-column: 1 / -1; }
+fieldset.field { margin: 0; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; }
+legend { padding: 0 6px; font-size: .88rem; font-weight: 700; }
+.field > label { font-size: .88rem; font-weight: 700; }
+.req { color: var(--red); }
+
+input[type="text"], input[type="number"], input[type="url"], input[type="email"], select, textarea {
+  width: 100%;
+  padding: 11px 13px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  color-scheme: dark;
+}
+textarea { resize: vertical; }
+input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px #f4b94233;
+}
+/* báo lỗi sau khi đã gõ mà chưa hợp lệ */
+input:not(:placeholder-shown):invalid, textarea:not(:placeholder-shown):invalid { border-color: var(--red); }
+
+.choice-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.choice {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: .88rem;
+  cursor: pointer;
+}
+.choice:has(input:checked) { border-color: var(--gold); color: var(--gold); background: var(--gold-soft); }
+input[type="radio"], input[type="checkbox"] { accent-color: var(--red); }
+.form-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+
+/* ---------- 13. FOOTER ---------- */
+.site-footer {
+  padding: 24px 40px 34px;
+  border-top: 1px solid var(--line);
+  font-size: .85rem;
+}
+.site-footer p { margin: 0 0 4px; }
+.site-footer b { color: var(--red); }
+
+/* ---------- 14. MODAL CHI TIẾT (:target + position fixed + z-index) ---------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  place-items: center;
+  padding: 24px;
+}
+.modal:target { display: grid; }
+.modal-backdrop { position: absolute; inset: 0; background: #03060ddd; }
+.modal-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 26px;
+  width: min(100%, 860px);
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  padding: 26px;
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--red);
+  box-shadow: var(--shadow);
+  animation: pop .25s ease-out;
+}
+.modal-poster { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 12px; }
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--panel2);
+  text-decoration: none;
+}
+.modal-close:hover { background: var(--red); }
+.modal-body h2 { font: 800 2.1rem var(--display); padding-right: 40px; }
+.vi-title { margin: 4px 0 14px; color: var(--gold); font-style: italic; }
+.plot { margin: 0 0 16px; color: #d6dbea; }
+.info { display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; margin: 0 0 20px; font-size: .9rem; }
+.info dt { color: var(--muted); }
+.info dd { margin: 0; }
+.modal-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+@keyframes pop { from { opacity: 0; transform: translateY(16px) scale(.98); } }
+@media (prefers-reduced-motion: reduce) {
+  .modal-card { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* ---------- 15. TRANG XÁC NHẬN ---------- */
+.result-page { min-height: 100vh; display: grid; place-items: center; padding: 24px; }
+.result-card {
+  width: min(100%, 580px);
+  padding: 42px 32px;
+  text-align: center;
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--gold);
+  box-shadow: var(--shadow);
+}
+.result-card .check {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--red);
+  color: var(--gold);
+  font-size: 2.2rem;
+  box-shadow: 0 0 0 10px #e6394626;
+}
+.result-card h1 { font: 800 2.1rem var(--display); text-transform: uppercase; margin-bottom: 12px; }
+.result-card p { color: var(--muted); }
+.result-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 22px; }
+
+/* ---------- 16. RESPONSIVE ---------- */
+@media (max-width: 1024px) {
+  .site-header { padding: 0 24px; gap: 18px; }
+  .header-badge { display: none; }
+  main { padding: 28px 24px 40px; }
+  .hero { grid-template-columns: 1fr; padding: 32px; }
+  .feature { width: min(100%, 300px); transform: none; }
+  .stats { margin-top: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .suggest { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  :root { --header-h: 104px; }
+  .site-header {
+    flex-wrap: wrap;
+    height: auto;
+    gap: 8px;
+    padding: 12px 16px 8px;
+  }
+  .main-nav { width: 100%; overflow-x: auto; }
+  .main-nav a { white-space: nowrap; padding: 6px 10px; }
+  main { padding: 22px 14px 34px; gap: 42px; }
+  .hero { padding: 24px 18px; }
+  .hero-actions .btn { padding: 12px 16px; white-space: nowrap; }
+  .stat b { font-size: 1.6rem; }
+  .section-head h2, .suggest-intro h2 { font-size: 1.8rem; }
+  .genre-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .chips { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 6px; }
+  .chips label { white-space: nowrap; }
+  .film-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 12px; }
+  .suggest { padding: 22px 16px; }
+  .form-grid { grid-template-columns: 1fr; }
+  .modal { padding: 0; place-items: stretch; }
+  .modal-card {
+    grid-template-columns: 1fr;
+    max-height: 100vh;
+    border-radius: 0;
+    padding: 20px 16px 28px;
+  }
+  .modal-poster-wrap { width: 60%; justify-self: center; }
+  .upcoming { padding: 22px 14px; }
+  .site-footer { padding: 20px 16px 30px; }
+}
+
+@media (max-width: 400px) {
+  .genre-card small { display: none; }
+  .form-actions .btn { flex: 1; }
+}

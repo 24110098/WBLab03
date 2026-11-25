@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14182a"/><stop offset="1" stop-color="#070b16"/></linearGradient></defs>
+<rect width="400" height="600" fill="url(#bg)"/>
+<g transform="translate(20,-10) rotate(-6 200 250) translate(200 250) scale(0.9) translate(-200 -250)"><g fill="none" stroke="#f4b942" stroke-width="3"><circle cx="200" cy="250" r="150"/><circle cx="200" cy="250" r="115"/><circle cx="200" cy="250" r="80"/><circle cx="200" cy="250" r="45"/></g><path d="M200 250 L350 120" stroke="#e63946" stroke-width="6"/><circle cx="200" cy="250" r="10" fill="#e63946"/></g><circle cx="330" cy="165" r="26" fill="#9b5de5" opacity=".55"/><rect x="0" y="394" width="400" height="6" fill="#9b5de5" opacity=".6"/>
+<rect x="0" y="0" width="400" height="600" fill="none" stroke="#f4b942" stroke-width="2" opacity=".35"/>
+<text x="200" y="40" fill="#f4b942" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="4" text-anchor="middle">THRILLER · 2025</text>
+<text fill="#ffffff" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="32" font-weight="800" text-anchor="middle" letter-spacing="1"><tspan x="200" y="439">THÁM TỬ</tspan><tspan x="200" y="470">KIÊN: KỲ ÁN</tspan><tspan x="200" y="500">KHÔNG ĐẦU</tspan></text>
+<rect x="300" y="550" width="80" height="26" rx="6" fill="#e63946"/><text x="340" y="568" fill="#fff" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="800" text-anchor="middle">PHIM VIỆT</text><text x="150" y="575" fill="#9aa6c1" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="12" text-anchor="middle" letter-spacing="2">ẢNH MINH HỌA · CINEVAULT</text>
+</svg>
