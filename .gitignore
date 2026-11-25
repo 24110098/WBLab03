@@ -1,0 +1,7 @@
+# Báo cáo Word — không đưa lên GitHub
+*.docx
+~$*.docx
+
+# File rác của Windows
+Thumbs.db
+desktop.ini
