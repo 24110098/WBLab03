@@ -795,6 +795,50 @@ input[type="radio"], input[type="checkbox"] { accent-color: var(--red); }
   .site-footer { padding: 20px 16px 30px; }
 }
 
+/* Bảng dữ liệu trên mobile: mỗi hàng thành 1 thẻ, nhãn cột lấy bằng ::before
+   (không cần sửa HTML — dùng :nth-child để biết ô thuộc cột nào) */
+@media (max-width: 720px) {
+  .table-wrap { overflow: visible; border: none; background: none; }
+  table { min-width: 0; font-size: .88rem; }
+  table, tbody, tr, td { display: block; width: 100%; }
+  thead { display: none; }
+  tbody tr {
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--panel);
+  }
+  tbody tr:nth-child(even) { background: var(--panel); }
+  .row-upcoming { border-left: 4px solid var(--gold); }
+  td {
+    display: grid;
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  td:last-child { border-bottom: none; }
+  td::before {
+    color: var(--muted);
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+  td:nth-child(1)::before { content: "Mã"; }
+  td:nth-child(2)::before { content: "Tên phim"; }
+  td:nth-child(3)::before { content: "Thể loại"; }
+  td:nth-child(4)::before { content: "Năm / Ngày"; }
+  td:nth-child(5)::before { content: "Đạo diễn"; }
+  td:nth-child(6)::before { content: "Xem"; }
+  /* gom nội dung mỗi ô vào cột phải */
+  td > * { grid-column: 2; justify-self: start; }
+  td > br { display: none; }   /* mỗi phần tử đã tự xuống dòng trong grid */
+  .table-group { border: none; background: none; padding: 0; margin: 18px 0 8px; }
+  .table-group th { display: block; border-radius: 8px; }
+}
+
 @media (max-width: 400px) {
   .genre-card small { display: none; }
   .form-actions .btn { flex: 1; }
